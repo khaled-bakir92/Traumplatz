@@ -19,7 +19,7 @@ const serviceCards = [
   },
   {
     title: "Winterdienst",
-    image: "/leistungen/⁠Winterdienst.png",
+    image: "/leistungen/Winterdienst.png",
     href: "/winterdienst",
   },
 ];
