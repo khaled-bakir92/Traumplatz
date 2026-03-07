@@ -41,6 +41,7 @@ export function Footer() {
               alt="Traumplatz Logo"
               width={140}
               height={140}
+              loading="lazy"
               className="h-auto w-auto max-w-[140px]"
             />
           </div>

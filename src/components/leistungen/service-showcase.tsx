@@ -57,6 +57,7 @@ export function ServiceShowcase({
                 alt={service.imageAlt}
                 width={600}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover w-full h-[400px] md:h-[500px] transition-transform duration-500 group-hover:scale-105"
               />
               {/* Gradient Overlay */}

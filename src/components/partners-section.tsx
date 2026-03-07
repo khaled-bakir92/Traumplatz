@@ -57,6 +57,7 @@ export function PartnersSection() {
                       alt={partner.alt}
                       width={200}
                       height={120}
+                      sizes="(max-width: 640px) 120px, 200px"
                       className="max-h-24 w-auto object-contain"
                     />
                   </div>

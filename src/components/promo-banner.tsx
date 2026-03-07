@@ -1,12 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export function PromoBanner() {
   return (
-    <section
-      className="relative py-12 sm:py-16 bg-cover bg-center bg-no-repeat overflow-hidden"
-      style={{ backgroundImage: "url('/banner-01-1.jpg')" }}
-    >
+    <section className="relative py-12 sm:py-16 overflow-hidden">
+      {/* Background Image */}
+      <Image
+        src="/banner-01-1.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-center"
+      />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 leading-tight">

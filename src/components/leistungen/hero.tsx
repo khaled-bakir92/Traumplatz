@@ -12,8 +12,9 @@ export function LeistungenHero() {
         src="/banner-01-1.jpg"
         alt="Traumplatz Leistungen Hintergrund"
         fill
-        className="object-cover"
         priority
+        sizes="100vw"
+        className="object-cover"
       />
 
       <div className="relative max-w-6xl mx-auto">

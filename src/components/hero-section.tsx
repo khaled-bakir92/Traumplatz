@@ -1,12 +1,20 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
   return (
-    <section
-      className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat pt-28"
-      style={{ backgroundImage: "url('/landingpage.png')" }}
-    >
+    <section className="relative min-h-screen flex items-center justify-center pt-28">
+      {/* Background Image — priority + sizes für optimales LCP */}
+      <Image
+        src="/landingpage.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/30" />
 

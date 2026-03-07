@@ -26,8 +26,8 @@ export function LeistungenCTA() {
         src="/banner-01-1.jpg"
         alt=""
         fill
+        sizes="100vw"
         className="object-cover"
-        priority
       />
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/60" />
