@@ -29,7 +29,8 @@ export const businessInfo = {
     schema: ["Mo-Sa 07:00-20:00"],
   },
   socialMedia: {
-    // Später hinzufügen
+    instagram: "https://instagram.com/traumplatz",
+    tiktok: "https://tiktok.com/@traumplatz",
   },
 } as const;
 

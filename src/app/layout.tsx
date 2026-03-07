@@ -98,9 +98,13 @@ export const metadata: Metadata = {
   category: "Dienstleistungen",
   classification: "Business",
 
-  // Verification (später hinzufügen wenn vorhanden)
+  // Google Search Console Verifizierung
+  // 1. Gehe zu https://search.google.com/search-console
+  // 2. Füge deine Domain hinzu → wähle "HTML-Meta-Tag" Methode
+  // 3. Kopiere den Inhalt des "content"-Attributs (ohne Anführungszeichen)
+  // 4. Ersetze "DEIN_CODE_HIER" mit deinem Code und entferne den Kommentar
   // verification: {
-  //   google: "your-google-verification-code",
+  //   google: "DEIN_CODE_HIER",
   // },
 
   // Alternative Sprachen (falls mehrsprachig)
@@ -130,7 +134,7 @@ export const metadata: Metadata = {
   },
 
   // Manifest für PWA
-  manifest: "/manifest.json",
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
@@ -140,6 +144,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
+      <head>
+        {/* Preconnect für externe Ressourcen — reduziert Ladezeit */}
+        <link rel="preconnect" href="https://tile.openstreetmap.org" />
+        <link rel="dns-prefetch" href="https://tile.openstreetmap.org" />
+        <link rel="preconnect" href="https://www.openstreetmap.org" />
+        <link rel="dns-prefetch" href="https://www.openstreetmap.org" />
+        <link rel="preconnect" href="https://wa.me" />
+        <link rel="dns-prefetch" href="https://wa.me" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

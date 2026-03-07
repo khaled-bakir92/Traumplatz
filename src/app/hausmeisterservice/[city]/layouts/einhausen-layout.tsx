@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/accordion";
 import { getCityContent } from "../city-content";
 import { businessInfo, getCityBySlug, cities } from "@/lib/seo-config";
-import { LocalServiceJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/json-ld";
 import { getServiceBySlug } from "@/lib/seo-config";
 import {
   Phone,
@@ -37,16 +36,6 @@ export default function EinhausenLayout({ citySlug }: LayoutProps) {
 
   return (
     <>
-      <LocalServiceJsonLd service={service} city={city} />
-      <BreadcrumbJsonLd
-        items={[
-          { name: "Startseite", url: "/" },
-          { name: "Hausmeisterservice", url: "/hausmeisterservice" },
-          { name: city.name },
-        ]}
-      />
-      <FAQJsonLd questions={content.faqs} />
-
       <Header />
       <main className="pt-28">
         {/* Hero Section - Warm, Personal Feel */}

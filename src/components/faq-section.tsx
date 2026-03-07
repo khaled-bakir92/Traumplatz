@@ -11,9 +11,7 @@ export function FAQSection() {
     <section className="py-16 sm:py-20 bg-section-gray">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12">
-          Häufig gestellte Fragen (FAQ) zu
-          <br />
-          Hausmeisterservice Bensheim
+          Häufig gestellte Fragen
         </h2>
 
         <Accordion type="single" collapsible className="space-y-4">

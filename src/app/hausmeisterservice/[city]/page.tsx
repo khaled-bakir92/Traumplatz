@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getCityBySlug, businessInfo, getServiceBySlug } from "@/lib/seo-config";
 import { getCityContent, getAllCitySlugs } from "./city-content";
+import { LocalServiceJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/json-ld";
 
 // Import all city layouts
 import BensheimLayout from "./layouts/bensheim-layout";
@@ -123,5 +124,20 @@ export default async function HausmeisterserviceCityPage({
     notFound();
   }
 
-  return <LayoutComponent citySlug={citySlug} />;
+  const service = getServiceBySlug("hausmeisterservice")!;
+
+  return (
+    <>
+      <LocalServiceJsonLd service={service} city={city} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Startseite", url: "/" },
+          { name: "Hausmeisterservice", url: "/hausmeisterservice" },
+          { name: city.name },
+        ]}
+      />
+      <FAQJsonLd questions={content.faqs} />
+      <LayoutComponent citySlug={citySlug} />
+    </>
+  );
 }

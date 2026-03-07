@@ -1,9 +1,10 @@
 import { businessInfo, services, cities, Service, City } from "@/lib/seo-config";
+import { fetchGoogleReviews } from "@/lib/google-places";
 
 // Typen für JSON-LD Schemas
 interface LocalBusinessSchema {
   "@context": "https://schema.org";
-  "@type": "LocalBusiness";
+  "@type": "ProfessionalService";
   "@id": string;
   name: string;
   description: string;
@@ -96,13 +97,13 @@ export function LocalBusinessJsonLd() {
 
   const schema: LocalBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "@id": `${businessInfo.url}/#organization`,
     name: businessInfo.name,
     description: businessInfo.description,
     url: businessInfo.url,
     logo: `${businessInfo.url}/logo.png`,
-    image: `${businessInfo.url}/og-image.jpg`,
+    image: `${businessInfo.url}/og-image.png`,
     telephone: businessInfo.contact.phone,
     email: businessInfo.contact.email,
     address: {
@@ -140,6 +141,10 @@ export function LocalBusinessJsonLd() {
       name: city.name,
     })),
     priceRange: "$$",
+    sameAs: [
+      businessInfo.socialMedia.instagram,
+      businessInfo.socialMedia.tiktok,
+    ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Unsere Dienstleistungen",
@@ -264,6 +269,58 @@ export function FAQJsonLd({
         text: q.answer,
       },
     })),
+  };
+
+  return <JsonLd data={schema} />;
+}
+
+// WebSite Schema — ermöglicht Sitelinks Search Box in Google
+export function WebSiteJsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${businessInfo.url}/#website`,
+    name: businessInfo.name,
+    url: businessInfo.url,
+    description: businessInfo.description,
+    inLanguage: "de-DE",
+    publisher: {
+      "@type": "ProfessionalService",
+      "@id": `${businessInfo.url}/#organization`,
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${businessInfo.url}/leistungen?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  return <JsonLd data={schema} />;
+}
+
+// AggregateRating Schema — zeigt Sternebewertung in Google Suchergebnissen
+export async function AggregateRatingJsonLd() {
+  const { rating, totalReviews } = await fetchGoogleReviews();
+
+  // Nur rendern wenn echte Daten vorhanden
+  if (!rating || !totalReviews) return null;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${businessInfo.url}/#organization`,
+    name: businessInfo.name,
+    url: businessInfo.url,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: rating.toFixed(1),
+      bestRating: "5",
+      worstRating: "1",
+      ratingCount: totalReviews,
+    },
   };
 
   return <JsonLd data={schema} />;

@@ -8,12 +8,16 @@ import { TrustBadges } from "@/components/trust-badges";
 import { ServicesSection } from "@/components/services-section";
 import { ServiceAreaSection } from "@/components/service-area-section";
 import { ReviewsSection } from "@/components/reviews-section";
-import { LocalBusinessJsonLd } from "@/components/json-ld";
+import { LocalBusinessJsonLd, FAQJsonLd, WebSiteJsonLd, AggregateRatingJsonLd } from "@/components/json-ld";
+import { faqs } from "@/lib/seo-config";
 
 export default function Home() {
   return (
     <>
       <LocalBusinessJsonLd />
+      <WebSiteJsonLd />
+      <AggregateRatingJsonLd />
+      <FAQJsonLd questions={faqs} />
       <Header />
       <main>
         <HeroSection />
