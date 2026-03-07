@@ -119,7 +119,7 @@ export default function ViernheimLayout({ citySlug }: LayoutProps) {
 
               <div className="relative h-80 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/Hausmeisterservice.png"
+                  src="/leistungen/Hausmeister.png"
                   alt={`Hausmeisterservice ${city.name}`}
                   fill
                   className="object-cover"

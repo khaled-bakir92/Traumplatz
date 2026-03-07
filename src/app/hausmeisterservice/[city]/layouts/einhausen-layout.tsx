@@ -118,7 +118,7 @@ export default function EinhausenLayout({ citySlug }: LayoutProps) {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="relative h-80 lg:h-[500px] rounded-3xl overflow-hidden">
                 <Image
-                  src="/Hausmeisterservice.png"
+                  src="/leistungen/Hausmeister.png"
                   alt={`Hausmeisterservice ${city.name}`}
                   fill
                   className="object-cover"

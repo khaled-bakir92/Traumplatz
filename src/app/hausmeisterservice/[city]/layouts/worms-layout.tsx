@@ -44,7 +44,7 @@ export default function WormsLayout({ citySlug }: LayoutProps) {
         <section className="relative py-20 lg:py-28 bg-gray-900 overflow-hidden">
           {/* Background Image */}
           <Image
-            src="/Hausmeisterservice.png"
+            src="/leistungen/Hausmeister.png"
             alt={`Hausmeisterservice ${city.name}`}
             fill
             className="object-cover opacity-20"

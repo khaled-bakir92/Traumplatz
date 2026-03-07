@@ -185,7 +185,7 @@ export default function ZwingenbergLayout({ citySlug }: LayoutProps) {
               </div>
               <div className="relative h-80 lg:h-[450px] rounded-2xl overflow-hidden shadow-xl">
                 <Image
-                  src="/Hausmeisterservice.png"
+                  src="/leistungen/Hausmeister.png"
                   alt={`Hausmeisterservice ${city.name}`}
                   fill
                   className="object-cover"

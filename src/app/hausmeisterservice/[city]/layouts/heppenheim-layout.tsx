@@ -114,7 +114,7 @@ export default function HeppenheimLayout({ citySlug }: LayoutProps) {
           {/* Right: Image */}
           <div className="relative h-[50vh] lg:h-auto">
             <Image
-              src="/Hausmeisterservice.png"
+              src="/leistungen/Hausmeister.png"
               alt={`Hausmeisterservice ${city.name}`}
               fill
               className="object-cover"

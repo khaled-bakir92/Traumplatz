@@ -118,7 +118,7 @@ export default function SeeheimJugenheimLayout({ citySlug }: LayoutProps) {
 
               <div className="relative h-[600px] lg:h-[700px]">
                 <Image
-                  src="/Hausmeisterservice.png"
+                  src="/leistungen/Hausmeister.png"
                   alt={`Exklusiver Hausmeisterservice ${city.name}`}
                   fill
                   className="object-cover"

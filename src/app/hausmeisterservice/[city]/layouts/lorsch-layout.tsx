@@ -151,7 +151,7 @@ export default function LorschLayout({ citySlug }: LayoutProps) {
               <div className="hidden lg:block lg:col-span-5 relative h-full min-h-[600px]">
                 <div className="absolute inset-0 rounded-l-[2rem] overflow-hidden">
                   <Image
-                    src="/Hausmeisterservice.png"
+                    src="/leistungen/Hausmeister.png"
                     alt="Hausmeisterservice in Lorsch - Traumplatz"
                     fill
                     className="object-cover"
@@ -299,7 +299,7 @@ export default function LorschLayout({ citySlug }: LayoutProps) {
         {/* Full-width Image Break with Text Overlay */}
         <section className="relative h-[45vh] min-h-[350px]">
           <Image
-            src="/Hausmeisterservice.png"
+            src="/leistungen/Hausmeister.png"
             alt="Professioneller Hausmeisterservice Lorsch"
             fill
             className="object-cover"

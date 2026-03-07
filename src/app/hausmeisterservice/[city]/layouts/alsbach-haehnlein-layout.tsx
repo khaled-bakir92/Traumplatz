@@ -44,7 +44,7 @@ export default function AlsbachHaehnleinLayout({ citySlug }: LayoutProps) {
         {/* Hero Section - Image background with overlay card */}
         <section className="relative min-h-[90vh] flex items-end lg:items-center">
           <Image
-            src="/Hausmeisterservice.png"
+            src="/leistungen/Hausmeister.png"
             alt="Hausmeisterservice Alsbach-Hähnlein - Traumplatz"
             fill
             className="object-cover"

@@ -270,7 +270,7 @@ export default function DarmstadtLayout({ citySlug }: LayoutProps) {
             {/* Image half */}
             <div className="relative h-[400px] lg:h-[500px]">
               <Image
-                src="/Hausmeisterservice.png"
+                src="/leistungen/Hausmeister.png"
                 alt="Professioneller Hausmeisterservice Darmstadt"
                 fill
                 className="object-cover"

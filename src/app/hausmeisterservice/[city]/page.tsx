@@ -84,7 +84,7 @@ export async function generateMetadata({
       locale: "de_DE",
       images: [
         {
-          url: "/Hausmeisterservice.png",
+          url: "/leistungen/Hausmeister.png",
           width: 1200,
           height: 630,
           alt: `Hausmeisterservice ${city.name} - ${businessInfo.name}`,
@@ -95,7 +95,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `Hausmeisterservice ${city.name} | ${businessInfo.name}`,
       description,
-      images: ["/Hausmeisterservice.png"],
+      images: ["/leistungen/Hausmeister.png"],
     },
   };
 }

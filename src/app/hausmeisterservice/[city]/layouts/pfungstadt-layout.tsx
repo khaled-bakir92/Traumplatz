@@ -197,7 +197,7 @@ export default function PfungstadtLayout({ citySlug }: LayoutProps) {
         {/* Image Break */}
         <section className="relative h-[40vh]">
           <Image
-            src="/Hausmeisterservice.png"
+            src="/leistungen/Hausmeister.png"
             alt={`Hausmeisterservice ${city.name}`}
             fill
             className="object-cover"

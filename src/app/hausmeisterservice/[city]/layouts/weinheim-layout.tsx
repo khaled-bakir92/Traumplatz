@@ -41,7 +41,7 @@ export default function WeinheimLayout({ citySlug }: LayoutProps) {
         {/* Hero Section - Premium Elegant */}
         <section className="relative min-h-screen">
           <Image
-            src="/Hausmeisterservice.png"
+            src="/leistungen/Hausmeister.png"
             alt={`Premium Hausmeisterservice ${city.name}`}
             fill
             className="object-cover"
