@@ -79,7 +79,7 @@ const services = [
     description: "Saubere Wege und Flächen durch gründliche Laubentfernung",
   },
   {
-    image: "/Gartenpflege/leistungen/Bewässerung.png",
+    image: "/Gartenpflege/leistungen/Bewaesserung.png",
     title: "Bewässerung",
     description: "Gezielte Wasserversorgung für gesunde Pflanzen und Rasen",
   },
