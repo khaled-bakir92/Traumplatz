@@ -10,10 +10,12 @@ interface TimelineStep {
 
 interface HausmeisterTimelineStepsProps {
   steps: TimelineStep[];
+  variant?: "green" | "blue";
 }
 
 export function HausmeisterTimelineSteps({
   steps,
+  variant = "green",
 }: HausmeisterTimelineStepsProps) {
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleSteps, setVisibleSteps] = useState<number[]>([]);
@@ -51,6 +53,13 @@ export function HausmeisterTimelineSteps({
     return () => observer.disconnect();
   }, []);
 
+  const circleClasses =
+    variant === "blue"
+      ? "bg-sky-100 border border-sky-300 shadow-sky-200/50"
+      : "bg-brand-green shadow-brand-green/30";
+
+  const numberClasses = variant === "blue" ? "text-sky-700" : "text-white";
+
   return (
     <div className="grid md:grid-cols-4 gap-8">
       {steps.map((step, index) => {
@@ -70,8 +79,12 @@ export function HausmeisterTimelineSteps({
                 : "opacity-0 translate-y-6 md:opacity-100 md:translate-y-0"
             }`}
           >
-            <div className="relative z-10 w-20 h-20 mx-auto bg-brand-green rounded-full flex items-center justify-center mb-6 shadow-lg shadow-brand-green/30">
-              <span className="text-2xl font-bold text-white">{step.step}</span>
+            <div
+              className={`relative z-10 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6 shadow-lg ${circleClasses}`}
+            >
+              <span className={`text-2xl font-bold ${numberClasses}`}>
+                {step.step}
+              </span>
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
             <p className="text-gray-500">{step.description}</p>
