@@ -1,12 +1,8 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  MapPin,
-  MessageCircle,
-  Phone,
-} from "lucide-react";
+import { WinterdienstHeroBackground } from "@/components/winterdienst-hero-background";
+import { ArrowRight, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { HausmeisterTimelineSteps } from "@/components/hausmeister-timeline-steps";
@@ -21,32 +17,82 @@ import {
 import { Button } from "@/components/ui/button";
 import { businessInfo, cities, getServiceBySlug } from "@/lib/seo-config";
 
-const service = getServiceBySlug("gebaeudereinigung")!;
+function HeroContent({ variant }: { variant: "dark" | "light" }) {
+  const isDark = variant === "dark";
+  return (
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-20 h-full flex items-center">
+      <div className="max-w-4xl">
+        <nav className="-mt-4 sm:mt-0 mb-4 sm:mb-6">
+          <ol className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-600" : "text-white/70"}`}>
+            <li>
+              <Link href="/" className={isDark ? "hover:text-sky-600" : "hover:text-white"}>
+                Home
+              </Link>
+            </li>
+            <span>/</span>
+            <li className={`${isDark ? "text-sky-600" : "text-sky-300"} font-medium`}>Winterdienst</li>
+          </ol>
+        </nav>
 
-interface CleaningServiceItem {
-  image: string;
-  title: string;
-  description: string;
-  fit?: "cover" | "contain";
-  imageClass?: string;
-  imagePadding?: string;
+        <p className={`text-xs sm:text-sm ${isDark ? "text-sky-600" : "text-sky-300"} font-medium tracking-normal sm:tracking-wider uppercase mb-3 sm:mb-6`}>
+          Professioneller Winterdienst
+        </p>
+
+        <h1 className={`text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold ${isDark ? "text-gray-900" : "text-white"} mb-8 leading-[1.1]`}>
+          Wir sichern Ihre Flächen.
+          <span className={isDark ? "text-sky-700" : "text-sky-300"}> Sie bleiben sorgenfrei im Winter.</span>
+        </h1>
+
+        <p className={`text-lg sm:text-2xl ${isDark ? "text-gray-600" : "text-white/80"} mb-12 max-w-2xl leading-relaxed`}>
+          Zuverlässiger Winterdienst für Wohnanlagen, Gewerbe und Praxen.
+          Pünktlich, gründlich und einsatzbereit bei Glätte.
+        </p>
+
+        <div className="mt-4 sm:mt-0 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-6">
+          <Button
+            asChild
+            size="lg"
+            className={`w-full ${isDark ? "bg-sky-700 hover:bg-sky-800" : "bg-sky-600 hover:bg-sky-500"} text-white px-4 py-4 text-sm font-medium rounded-xl sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full`}
+          >
+            <a href={`tel:${businessInfo.contact.phone}`}>
+              <Phone className="w-5 h-5 mr-3" />
+              Jetzt anrufen
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className={`w-full ${isDark ? "border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white" : "border-white text-white hover:bg-white hover:text-gray-900"} px-4 py-4 text-sm font-medium rounded-xl bg-transparent sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full`}
+          >
+            <Link href="#services">
+              Mehr erfahren
+              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
+const service = getServiceBySlug("winterdienst")!;
+
 export const metadata: Metadata = {
-  title: `${service.name} | Professionelle Sauberkeit an der Bergstraße`,
+  title: `${service.name} | Sicher durch den Winter an der Bergstraße`,
   description: service.metaDescription,
   keywords: service.keywords,
   alternates: {
-    canonical: "/gebaeudereinigung",
+    canonical: "/winterdienst",
   },
   openGraph: {
     title: `${service.name} | ${businessInfo.name}`,
     description: service.metaDescription,
-    url: "/gebaeudereinigung",
+    url: "/winterdienst",
     type: "website",
     images: [
       {
-        url: "/leistungCard/GlasCard.png",
+        url: "/leistungCard/winterCard.png",
         width: 1200,
         height: 630,
         alt: `${service.name} - ${businessInfo.name}`,
@@ -57,43 +103,40 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${service.name} | ${businessInfo.name}`,
     description: service.metaDescription,
-    images: ["/leistungCard/GlasCard.png"],
+    images: ["/leistungCard/winterCard.png"],
   },
 };
 
-const services: CleaningServiceItem[] = [
+const services = [
   {
-    image: "/glasreinigung/leistugen/Unterhaltsreinigung-v2.png",
-    title: "Unterhaltsreinigung",
-    description: "Regelmäßige Reinigung für dauerhaft gepflegte Flächen",
+    image: "/leistungen/Winterdienst.png",
+    title: "Schneeräumung",
+    description: "Zuverlässige Räumung von Wegen, Zufahrten und Flächen",
   },
   {
-    image: "/glasreinigung/leistugen/Treppenhausreinigung-v2.png",
-    title: "Treppenhausreinigung",
-    description: "Saubere Eingangs- und Treppenbereiche mit System",
+    image: "/leistungCard/winterCard.png",
+    title: "Streudienst",
+    description: "Vereisungsschutz auf Gehwegen und Eingangsbereichen",
   },
   {
-    image: "/glasreinigung/leistugen/Buroreinigung-v2.png",
-    title: "Büroreinigung",
-    description: "Hygienische Arbeitsplätze für Teams und Kundenkontakt",
-    fit: "cover",
+    image: "/leistungen/Winterdienst.png",
+    title: "Kontrollfahrten",
+    description: "Regelmäßige Wetter- und Flächenkontrolle im Einsatzgebiet",
   },
   {
-    image: "/glasreinigung/leistugen/Glasreinigung-v2.png",
-    title: "Glasreinigung",
-    description: "Streifenfreie Fenster und Glaselemente innen und außen",
-    fit: "contain",
-    imageClass: "object-contain scale-110 p-0",
+    image: "/leistungCard/winterCard.png",
+    title: "Objektbetreuung",
+    description: "Winterdienst für Wohnanlagen, Gewerbe und Praxen",
   },
   {
-    image: "/glasreinigung/leistugen/Grundreinigung-v2.png",
-    title: "Grundreinigung",
-    description: "Intensive Reinigung bei Übergaben und Sonderbedarfen",
+    image: "/leistungen/Winterdienst.png",
+    title: "Früh-Einsätze",
+    description: "Einsatz ab den frühen Morgenstunden bei Bedarf",
   },
   {
-    image: "/glasreinigung/leistugen/Sanitaerreinigung-v2.png",
-    title: "Sanitärreinigung",
-    description: "Gründliche Reinigung und Desinfektion sensibler Bereiche",
+    image: "/leistungCard/winterCard.png",
+    title: "Dokumentation",
+    description: "Transparente Einsatznachweise für mehr Sicherheit",
   },
 ];
 
@@ -102,155 +145,90 @@ const processSteps = [
     step: "01",
     title: "Kontaktaufnahme",
     description:
-      "Sie schreiben oder rufen uns an. Wir erfassen Objekt, Flächen und Turnus.",
+      "Sie melden sich telefonisch oder per WhatsApp. Wir erfassen Objekt und Flächen.",
   },
   {
     step: "02",
     title: "Kostenlose Besichtigung",
     description:
-      "Wir besichtigen Ihr Objekt vor Ort und definieren gemeinsam den Reinigungsumfang.",
+      "Wir prüfen vor Ort Zufahrten, Gehwege und sensible Bereiche für den Winter.",
   },
   {
     step: "03",
     title: "Individuelles Angebot",
     description:
-      "Sie erhalten ein transparentes Angebot mit festen Leistungen und Intervallen.",
+      "Sie erhalten ein klares Angebot mit Leistungen, Einsatzzeiten und Intervallen.",
   },
   {
     step: "04",
-    title: "Regelmäßige Reinigung",
+    title: "Wintereinsatz",
     description:
-      "Unser Team sorgt zuverlässig für saubere, gepflegte und hygienische Räume.",
+      "Unser Team sorgt bei Schnee und Glätte für sichere und begehbare Flächen.",
   },
 ];
 
-const cleaningFaqs = [
+const winterFaqs = [
   {
-    question: "Wie oft sollte eine Gebäudereinigung stattfinden?",
+    question: "Wann startet der Winterdienst-Einsatz?",
     answer:
-      "Das hängt von Nutzung, Personenaufkommen und Branchenanforderungen ab. Für viele Objekte sind 1- bis 3-mal pro Woche sinnvoll.",
+      "Wir orientieren uns an Wetterlage und Glätteprognosen. Bei Bedarf starten unsere Einsätze bereits in den frühen Morgenstunden.",
   },
   {
-    question: "Bieten Sie feste Reinigungsteams an?",
+    question: "Welche Flächen übernehmen Sie?",
     answer:
-      "Ja, nach Möglichkeit arbeiten feste Teams in festen Objekten. Das sorgt für gleichbleibende Qualität und kurze Abstimmungswege.",
+      "Wir übernehmen Gehwege, Eingänge, Zufahrten, Parkflächen und weitere vereinbarte Bereiche rund um Ihr Objekt.",
   },
   {
-    question: "Werden Reinigungsmittel gestellt?",
+    question: "Stellen Sie Streumittel bereit?",
     answer:
-      "Ja, wir bringen professionelle Reinigungsmittel und Geräte mit. Auf Wunsch nutzen wir auch umweltschonende oder objektspezifische Produkte.",
+      "Ja, wir bringen geeignete Streumittel mit und passen den Einsatz an Temperatur und Untergrund an.",
   },
   {
-    question: "Ist eine Reinigung außerhalb der Öffnungszeiten möglich?",
+    question: "Bieten Sie feste Winterverträge an?",
     answer:
-      "Ja, wir reinigen auf Wunsch früh morgens, abends oder am Wochenende, damit Ihr Betrieb ungestört bleibt.",
+      "Ja, wir bieten planbare Vertragsmodelle für die gesamte Wintersaison sowie flexible Lösungen bei kurzfristigem Bedarf.",
   },
   {
-    question: "Übernehmen Sie auch einmalige Grundreinigungen?",
+    question: "Reinigen Sie die Flächen auch nach dem Winter?",
     answer:
-      "Ja. Neben laufenden Verträgen bieten wir auch einmalige Einsätze an, zum Beispiel nach Umbauten, Umzügen oder vor Übergaben.",
+      "Auf Wunsch übernehmen wir die Nachreinigung von Reststreugut und Winterrückständen zum Saisonende.",
   },
   {
-    question: "Wie schnell kann ein Einsatz starten?",
+    question: "Wie schnell können Sie starten?",
     answer:
-      "Nach Erstgespräch und Besichtigung können wir meist kurzfristig starten. Bei dringendem Bedarf prüfen wir sofort verfügbare Kapazitäten.",
+      "Nach Erstgespräch und Besichtigung können wir in der Regel kurzfristig starten. Bei akuter Wetterlage prüfen wir sofort verfügbare Kapazitäten.",
   },
   {
-    question: "Was kostet eine professionelle Gebäudereinigung?",
+    question: "Was kostet ein Winterdienst-Vertrag?",
     answer:
-      "Die Kosten richten sich nach Fläche, Häufigkeit und Leistungsumfang. Nach Besichtigung erhalten Sie ein transparentes Angebot ohne versteckte Kosten.",
+      "Die Kosten richten sich nach Fläche, Objektlage und gewünschtem Leistungsumfang. Sie erhalten ein transparentes Angebot ohne versteckte Kosten.",
   },
   {
-    question: "Reinigen Sie auch Glasflächen und Sanitärbereiche?",
+    question: "Sind Einsätze dokumentiert?",
     answer:
-      "Ja, wir übernehmen sowohl Glasreinigung als auch Sanitärreinigung nach klar definierten Qualitätsstandards.",
+      "Ja, unsere Einsätze können mit Zeitfenstern und Leistungen dokumentiert werden, damit Sie jederzeit den Überblick behalten.",
   },
 ];
 
-export default function GebaeudereinigungPage() {
+export default function WinterdienstPage() {
   return (
     <>
       <ServiceJsonLd service={service} />
       <BreadcrumbJsonLd
         items={[
           { name: "Startseite", url: "/" },
-          { name: "Gebäudereinigung" },
+          { name: "Winterdienst" },
         ]}
       />
-      <FAQJsonLd questions={cleaningFaqs} />
+      <FAQJsonLd questions={winterFaqs} />
 
       <Header />
       <main className="pt-28">
-        <section className="h-[calc(100svh-7rem)] flex items-center relative overflow-hidden">
-          <Image
-            src="/glasreinigung/img2.jpeg"
-            alt="Gebäudereinigung Hintergrund"
-            fill
-            className="object-cover object-center"
-            priority
+        <section className="h-[calc(100svh-7rem)] relative overflow-hidden">
+          <WinterdienstHeroBackground
+            contentDark={<HeroContent variant="dark" />}
+            contentLight={<HeroContent variant="light" />}
           />
-
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.65) 100%)",
-            }}
-          />
-
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-20 relative z-10">
-            <div className="max-w-4xl">
-              <nav className="-mt-4 sm:mt-0 mb-4 sm:mb-6">
-                <ol className="flex items-center gap-2 text-sm text-gray-600">
-                  <li>
-                    <Link href="/" className="hover:text-sky-600">
-                      Home
-                    </Link>
-                  </li>
-                  <span>/</span>
-                  <li className="text-sky-600 font-medium">Gebäudereinigung</li>
-                </ol>
-              </nav>
-
-              <p className="text-xs sm:text-sm text-sky-600 font-medium tracking-normal sm:tracking-wider uppercase mb-3 sm:mb-6">
-                Professionelle Gebäudereinigung
-              </p>
-
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-8 leading-[1.1]">
-                Wir reinigen Ihr Objekt.
-                <span className="text-sky-700"> Sie konzentrieren sich auf Ihr Geschäft.</span>
-              </h1>
-
-              <p className="text-lg sm:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed">
-                Zuverlässige Gebäudereinigung für Büros, Praxen und Wohnanlagen.
-                Gründlich, diskret und termintreu.
-              </p>
-
-              <div className="mt-4 sm:mt-0 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-6">
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full bg-sky-700 hover:bg-sky-800 text-white px-4 py-4 text-sm font-medium rounded-xl sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full"
-                >
-                  <a href={`tel:${businessInfo.contact.phone}`}>
-                    <Phone className="w-5 h-5 mr-3" />
-                    Jetzt anrufen
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="w-full border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-4 py-4 text-sm font-medium rounded-xl bg-transparent sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full"
-                >
-                  <Link href="#services">
-                    Mehr erfahren
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
         </section>
 
         <section id="services" className="py-24 bg-section-gray">
@@ -272,13 +250,7 @@ export default function GebaeudereinigungPage() {
                       src={serviceItem.image}
                       alt={serviceItem.title}
                       fill
-                      className={
-                        serviceItem.imageClass
-                          ? serviceItem.imageClass
-                          : serviceItem.fit === "cover"
-                            ? "object-cover"
-                            : `object-contain ${serviceItem.imagePadding ?? "p-2"}`
-                      }
+                      className="object-contain p-2"
                     />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 group-hover:text-white mb-1.5 transition-colors">
@@ -295,8 +267,8 @@ export default function GebaeudereinigungPage() {
 
         <section className="relative h-[70vh]">
           <Image
-            src="/glasreinigung/img1.jpg"
-            alt="Professionelle Gebäudereinigung"
+            src="/leistungen/Winterdienst.png"
+            alt="Professioneller Winterdienst"
             fill
             className="object-cover object-center"
           />
@@ -307,11 +279,11 @@ export default function GebaeudereinigungPage() {
               <div className="max-w-xl">
                 <p className="text-white/80 text-lg mb-4">Seit 6+ Jahren</p>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-                  Sauberkeit auf die Sie sich verlassen können
+                  Sicherheit auf die Sie sich verlassen können
                 </h2>
                 <p className="text-white/90 text-base sm:text-xl">
-                  Von der täglichen Unterhaltsreinigung bis zur Grundreinigung:
-                  Zahlreiche Kunden in der Bergstraße vertrauen auf unser Team.
+                  Von der ersten Glätte bis zum letzten Schneefall: Zahlreiche
+                  Kunden in der Bergstraße setzen auf unseren Winterdienst.
                 </p>
               </div>
             </div>
@@ -325,7 +297,7 @@ export default function GebaeudereinigungPage() {
                 So einfach geht&apos;s
               </h2>
               <p className="text-xl text-gray-500">
-                In vier Schritten zu Ihrer professionellen Gebäudereinigung
+                In vier Schritten zu Ihrem professionellen Winterdienst
               </p>
             </div>
 
@@ -339,11 +311,11 @@ export default function GebaeudereinigungPage() {
         <section className="py-24 bg-section-gray">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12">
-              Häufige Fragen zur Gebäudereinigung
+              Häufige Fragen zum Winterdienst
             </h2>
 
             <Accordion type="single" collapsible className="space-y-4">
-              {cleaningFaqs.map((faq, index) => (
+              {winterFaqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
@@ -386,19 +358,15 @@ export default function GebaeudereinigungPage() {
                   Leistungsseite.
                 </p>
               </div>
-              <ServiceAreaMap
-                cities={cities}
-                serviceSlug="gebaeudereinigung"
-                variant="blue"
-              />
+              <ServiceAreaMap cities={cities} serviceSlug="winterdienst" variant="blue" />
             </div>
           </div>
         </section>
 
         <section className="py-32 relative overflow-hidden">
           <Image
-            src="/glasreinigung/img3.jpg"
-            alt="Gebäudereinigung CTA Hintergrund"
+            src="/leistungCard/winterCard.png"
+            alt="Winterdienst CTA Hintergrund"
             fill
             className="object-cover object-center"
           />
@@ -406,8 +374,8 @@ export default function GebaeudereinigungPage() {
 
           <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-8">
-              Bereit für ein
-              <span className="text-sky-200"> sichtbar sauberes Objekt</span>?
+              Bereit für sichere
+              <span className="text-sky-200"> Wege und Flächen</span>?
             </h2>
 
             <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
