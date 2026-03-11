@@ -410,28 +410,33 @@ export interface FAQ {
 
 export const faqs: FAQ[] = [
   {
-    question: "Was kostet ein Hausmeisterservice in Bensheim?",
+    question: "Wie oft sollte der Rasen gemäht werden und was ist im Jahresverlauf zu beachten?",
     answer:
-      "Die Kosten für unseren Hausmeisterservice variieren je nach Umfang und Häufigkeit der Leistungen. Wir erstellen Ihnen gerne ein individuelles Angebot, das auf Ihre Bedürfnisse zugeschnitten ist. Kontaktieren Sie uns für eine kostenlose Beratung.",
+      "Von April bis Oktober empfehlen wir eine Mahd alle 1–2 Wochen, im Frühjahr und Herbst genügen 2–3 Wochen Abstand. Die ideale Schnitthöhe liegt zwischen 3,5 und 5 cm – zu kurzes Mähen schwächt den Rasen und fördert Unkraut. Zusätzlich übernehmen wir das gesamte Jahresprogramm: Vertikutieren im Frühjahr, regelmäßiges Düngen, Bewässerung bei Trockenheit und die Herbstvorbereitung für einen gesunden Rasen im nächsten Jahr.",
   },
   {
-    question: "Sind auch kurzfristige Einsätze möglich?",
+    question: "Übernehmen Sie auch das Beschneiden von Hecken und Sträuchern?",
     answer:
-      "Ja, wir bieten auch kurzfristige Einsätze an. Dank unserer lokalen Präsenz in Bensheim können wir schnell reagieren und sind oft noch am selben Tag bei Ihnen vor Ort.",
+      "Ja, wir kümmern uns um den fachgerechten Formschnitt von Hecken, Sträuchern und Zierbäumen. Der optimale Zeitpunkt ist zweimal jährlich – im Frühjahr (März/April) vor dem Austrieb und im Spätsommer (August/September) für den letzten Schnitt vor dem Winter. Dabei halten wir uns strikt an das Bundesnaturschutzgesetz, das starke Rückschnitte während der Brutzeit von März bis September untersagt. So bleibt Ihr Garten gepflegt und Sie bleiben rechtlich auf der sicheren Seite.",
   },
   {
-    question: "Kümmert sich der Hausmeister auch um Grünpflege und Winterdienst?",
+    question: "Wie häufig sollte eine professionelle Glasreinigung durchgeführt werden?",
     answer:
-      "Ja, unser Hausmeisterservice umfasst auch Grünpflege und Winterdienst. Wir bieten Ihnen ein Rundum-sorglos-Paket, das alle Bereiche der Objektbetreuung abdeckt – von der Gartenpflege über Reinigungsarbeiten bis zum Schneeräumen.",
+      "Für Privathaushalte empfehlen wir 2–4 Reinigungen pro Jahr, je nach Lage und Umgebung. Gebäude in der Nähe von Straßen, Industrie oder mit viel Baumbestand benötigen häufigere Reinigungen. Für Gewerbeobjekte, Schaufenster oder Bürogebäude empfehlen wir je nach Verschmutzungsgrad alle 4–8 Wochen. Regelmäßige Reinigung schützt das Glas langfristig vor hartnäckigen Kalkflecken, Mineralablagerungen und UV-Schäden, die die Glasoberfläche dauerhaft beschädigen können.",
   },
   {
-    question: "Wie flexibel sind Ihre Verträge?",
+    question: "Welche Bereiche werden bei der Glas- und Gebäudereinigung gereinigt?",
     answer:
-      "Wir bieten flexible Vertragsmodelle an, die sich an Ihren Bedürfnissen orientieren. Ob monatlich kündbar oder als Jahresvertrag mit Preisvorteil – wir finden gemeinsam die beste Lösung für Sie.",
+      "Unser Leistungsumfang umfasst Fenster innen und außen inklusive Rahmen und Dichtungen, Glasfassaden, Eingangsbereiche und Türen, Treppenhäuser, Flure und Gemeinschaftsflächen, Tiefgaragenböden, Dachrinnen sowie Fassaden- und Außenwandreinigung. Wir arbeiten mit professionellen Geräten und umweltfreundlichen Reinigungsmitteln, die Oberflächen schonen und dennoch gründlich reinigen – auch bei schwer zugänglichen Stellen.",
   },
   {
-    question: "Warum ist ein externer Hausmeister günstiger als ein eigener?",
+    question: "Welche Aufgaben übernimmt ein Hausmeisterservice konkret?",
     answer:
-      "Ein externer Hausmeisterservice spart Ihnen Personalkosten wie Sozialabgaben, Urlaubsgeld, Krankheitsvertretung und Weiterbildung. Zudem zahlen Sie nur für die tatsächlich erbrachten Leistungen und profitieren von unserem Fachwissen und professioneller Ausrüstung.",
+      "Unser Hausmeisterservice deckt ein breites Spektrum ab: Kleinreparaturen und Wartungsarbeiten, Leuchtmittelwechsel, Treppenhausreinigung, Mülltonnenmanagement und Stellplatzpflege, Grünpflege und Winterdienst, Schlüsselverwaltung, Koordination von Handwerkern sowie die Übernahme der Verkehrssicherungspflicht. Sie erhalten alles aus einer Hand – zuverlässig, dokumentiert und zu festen Konditionen. Das spart Ihnen Zeit, Nerven und die Kosten für mehrere einzelne Dienstleister.",
+  },
+  {
+    question: "Ab wann sind Grundstückseigentümer zur Schneeräumung verpflichtet?",
+    answer:
+      "In Deutschland sind Grundstückseigentümer gesetzlich verpflichtet, angrenzende Gehwege an Werktagen ab 7:00 Uhr und an Sonn- und Feiertagen ab 8:00–9:00 Uhr (je nach Gemeinde) schnee- und eisfrei zu halten – in der Regel bis 20:00 Uhr. Bei Verstoß haften Eigentümer bei Unfällen auf Schadensersatz und Schmerzensgeld. Wir übernehmen diese Verkehrssicherungspflicht vollständig für Sie: mit 24/7-Bereitschaft, dokumentierten Einsätzen und schneller Reaktionszeit bei Neuschnee und Glatteis.",
   },
 ];
