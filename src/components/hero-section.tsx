@@ -27,8 +27,7 @@ export function HeroSection() {
         </h1>
 
         <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-10">
-          Von der Gartenpflege bis zum Winterdienst – wir kümmern uns um Ihre
-          Außenanlagen und Gebäude mit Leidenschaft und Präzision.
+          Von der Gartenpflege über Glas- und Gebäudereinigung bis zum Hausmeisterservice und Winterdienst – wir kümmern uns um Ihre Außenanlagen und Gebäude mit Leidenschaft und Präzision.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

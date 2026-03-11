@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const serviceCards = [
   {
@@ -47,6 +48,10 @@ export function ServicesSection() {
               <h3 className="font-medium text-gray-900 group-hover:text-brand-green transition-colors text-sm sm:text-base">
                 {service.title}
               </h3>
+              <p className="flex items-center gap-1 text-xs text-brand-green mt-1 font-medium">
+                Mehr erfahren
+                <ArrowRight className="size-3 animate-bounce" />
+              </p>
             </Link>
           ))}
         </div>
