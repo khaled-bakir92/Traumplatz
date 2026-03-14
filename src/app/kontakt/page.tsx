@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
@@ -19,8 +19,214 @@ import {
   ChevronRight,
   CheckCircle2,
   Loader2,
+  AlertCircle,
 } from "lucide-react";
 
+// --- Confetti Particle ---
+interface Particle {
+  id: number;
+  x: number;
+  color: string;
+  size: number;
+  duration: number;
+  delay: number;
+  rotation: number;
+  shape: "rect" | "circle";
+}
+
+function Confetti() {
+  const colors = [
+    "#16a34a",
+    "#22c55e",
+    "#86efac",
+    "#fbbf24",
+    "#f97316",
+    "#60a5fa",
+    "#a78bfa",
+    "#f472b6",
+  ];
+  const particles: Particle[] = Array.from({ length: 60 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    size: Math.random() * 8 + 5,
+    duration: Math.random() * 2 + 2,
+    delay: Math.random() * 1.5,
+    rotation: Math.random() * 360,
+    shape: Math.random() > 0.5 ? "rect" : "circle",
+  }));
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="absolute top-0"
+          style={{
+            left: `${p.x}%`,
+            width: p.shape === "circle" ? p.size : p.size * 0.6,
+            height: p.size,
+            backgroundColor: p.color,
+            borderRadius: p.shape === "circle" ? "50%" : "2px",
+            transform: `rotate(${p.rotation}deg)`,
+            animation: `confettiFall ${p.duration}s ease-in ${p.delay}s both`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// --- Animated Checkmark SVG ---
+function AnimatedCheck() {
+  return (
+    <div className="relative flex items-center justify-center w-28 h-28">
+      {/* Pulsing ring */}
+      <div className="absolute inset-0 rounded-full bg-green-100 animate-ping opacity-40" />
+      <div className="absolute inset-2 rounded-full bg-green-50" />
+      {/* SVG checkmark */}
+      <svg
+        viewBox="0 0 52 52"
+        className="w-20 h-20 relative z-10"
+        style={{ filter: "drop-shadow(0 4px 12px rgba(22,163,74,0.4))" }}
+      >
+        <circle
+          cx="26"
+          cy="26"
+          r="24"
+          fill="none"
+          stroke="#16a34a"
+          strokeWidth="2.5"
+          style={{
+            strokeDasharray: 160,
+            strokeDashoffset: 0,
+            animation: "drawCircle 0.6s ease-out forwards",
+          }}
+        />
+        <path
+          fill="none"
+          stroke="#16a34a"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M14 27 l9 9 l16 -18"
+          style={{
+            strokeDasharray: 40,
+            strokeDashoffset: 40,
+            animation: "drawCheck 0.4s ease-out 0.5s forwards",
+          }}
+        />
+      </svg>
+    </div>
+  );
+}
+
+// --- Success Overlay ---
+interface SuccessOverlayProps {
+  visible: boolean;
+  onDone: () => void;
+}
+
+function SuccessOverlay({ visible, onDone }: SuccessOverlayProps) {
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (visible) {
+      timerRef.current = setTimeout(() => {
+        onDone();
+      }, 3200);
+    }
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [visible, onDone]);
+
+  return (
+    <>
+      {/* Keyframe styles */}
+      <style>{`
+        @keyframes confettiFall {
+          0%   { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+          100% { transform: translateY(420px) rotate(720deg); opacity: 0; }
+        }
+        @keyframes drawCircle {
+          from { stroke-dashoffset: 160; }
+          to   { stroke-dashoffset: 0; }
+        }
+        @keyframes drawCheck {
+          from { stroke-dashoffset: 40; }
+          to   { stroke-dashoffset: 0; }
+        }
+        @keyframes popIn {
+          0%   { transform: scale(0.6); opacity: 0; }
+          70%  { transform: scale(1.05); opacity: 1; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes slideUp {
+          from { transform: translateY(16px); opacity: 0; }
+          to   { transform: translateY(0);    opacity: 1; }
+        }
+        @keyframes fadeOverlay {
+          0%   { opacity: 0; }
+          10%  { opacity: 1; }
+          80%  { opacity: 1; }
+          100% { opacity: 0; }
+        }
+      `}</style>
+
+      <div
+        className="absolute inset-0 z-20 flex items-center justify-center rounded-3xl"
+        style={{
+          background: "rgba(255,255,255,0.96)",
+          backdropFilter: "blur(4px)",
+          animation: visible ? "fadeOverlay 3.2s ease forwards" : "none",
+          display: visible ? "flex" : "none",
+        }}
+      >
+        <Confetti />
+
+        <div
+          className="relative z-10 flex flex-col items-center text-center px-8"
+          style={{ animation: "popIn 0.6s cubic-bezier(0.34,1.56,0.64,1) forwards" }}
+        >
+          <AnimatedCheck />
+
+          <h3
+            className="text-3xl font-bold text-gray-900 mt-6 mb-2"
+            style={{ animation: "slideUp 0.5s ease 0.8s both" }}
+          >
+            Nachricht gesendet!
+          </h3>
+
+          <p
+            className="text-gray-500 text-base max-w-xs"
+            style={{ animation: "slideUp 0.5s ease 1s both" }}
+          >
+            Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+          </p>
+
+          {/* Decorative dots */}
+          <div
+            className="flex gap-2 mt-6"
+            style={{ animation: "slideUp 0.5s ease 1.2s both" }}
+          >
+            {["bg-green-400", "bg-yellow-400", "bg-blue-400"].map((c, i) => (
+              <div
+                key={i}
+                className={`w-2 h-2 rounded-full ${c}`}
+                style={{
+                  animation: `bounce 0.8s ease ${1.3 + i * 0.15}s infinite alternate`,
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// --- Main Page ---
 export default function KontaktPage() {
   const [formState, setFormState] = useState({
     name: "",
@@ -30,17 +236,41 @@ export default function KontaktPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMsg(null);
 
-    // Simulate form submission - replace with actual form handling
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormState({ name: "", email: "", telefon: "", nachricht: "" });
+      const data = (await res.json()) as { success?: boolean; error?: string };
+
+      if (!res.ok || !data.success) {
+        setErrorMsg(
+          data.error ?? "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+        );
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Success — show animation, then reveal thank-you card
+      setIsSubmitting(false);
+      setShowOverlay(true);
+      setFormState({ name: "", email: "", telefon: "", nachricht: "" });
+    } catch {
+      setErrorMsg(
+        "Verbindungsfehler. Bitte prüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."
+      );
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -50,6 +280,7 @@ export default function KontaktPage() {
       ...prev,
       [e.target.name]: e.target.value,
     }));
+    if (errorMsg) setErrorMsg(null);
   };
 
   const contactCards = [
@@ -94,7 +325,6 @@ export default function KontaktPage() {
       <main className="pt-28 overflow-x-hidden">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-green-50 via-white to-emerald-50 py-12 md:py-24 px-4 overflow-hidden">
-          {/* Decorative elements - hidden on mobile to prevent overflow */}
           <div className="hidden md:block absolute top-20 left-10 w-72 h-72 bg-brand-green/5 rounded-full blur-3xl" />
           <div className="hidden md:block absolute bottom-10 right-10 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl" />
 
@@ -173,7 +403,16 @@ export default function KontaktPage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               {/* Contact Form */}
-              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100">
+              <div className="relative bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100 overflow-hidden">
+                {/* Success overlay — sits on top of everything */}
+                <SuccessOverlay
+                  visible={showOverlay}
+                  onDone={() => {
+                    setShowOverlay(false);
+                    setIsSubmitted(true);
+                  }}
+                />
+
                 <div className="mb-8">
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
                     Schreiben Sie uns
@@ -267,6 +506,14 @@ export default function KontaktPage() {
                         className="rounded-xl border-gray-200 focus:border-brand-green focus:ring-brand-green/20 resize-none"
                       />
                     </div>
+
+                    {/* Error message */}
+                    {errorMsg && (
+                      <div className="flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                        <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                        <span>{errorMsg}</span>
+                      </div>
+                    )}
 
                     <Button
                       type="submit"
