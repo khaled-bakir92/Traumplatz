@@ -109,32 +109,32 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    image: "/leistungen/Winterdienst.png",
+    image: "/winterdienst/leistungen/Schneeraeumung.png",
     title: "Schneeräumung",
     description: "Zuverlässige Räumung von Wegen, Zufahrten und Flächen",
   },
   {
-    image: "/leistungCard/winterCard.png",
+    image: "/winterdienst/leistungen/Streudienst.png",
     title: "Streudienst",
     description: "Vereisungsschutz auf Gehwegen und Eingangsbereichen",
   },
   {
-    image: "/leistungen/Winterdienst.png",
+    image: "/winterdienst/leistungen/Kontrollfahrten.png",
     title: "Kontrollfahrten",
     description: "Regelmäßige Wetter- und Flächenkontrolle im Einsatzgebiet",
   },
   {
-    image: "/leistungCard/winterCard.png",
+    image: "/winterdienst/leistungen/Objektbetreuung.png",
     title: "Objektbetreuung",
     description: "Winterdienst für Wohnanlagen, Gewerbe und Praxen",
   },
   {
-    image: "/leistungen/Winterdienst.png",
+    image: "/winterdienst/leistungen/Einsatz.png",
     title: "Früh-Einsätze",
     description: "Einsatz ab den frühen Morgenstunden bei Bedarf",
   },
   {
-    image: "/leistungCard/winterCard.png",
+    image: "/winterdienst/leistungen/Dokumentation.png",
     title: "Dokumentation",
     description: "Transparente Einsatznachweise für mehr Sicherheit",
   },
@@ -250,7 +250,7 @@ export default function WinterdienstPage() {
                       src={serviceItem.image}
                       alt={serviceItem.title}
                       fill
-                      className="object-contain p-2"
+                      className={`object-contain ${serviceItem.title === "Dokumentation" ? "scale-125 p-0" : "p-2"}`}
                     />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 group-hover:text-white mb-1.5 transition-colors">
@@ -267,7 +267,7 @@ export default function WinterdienstPage() {
 
         <section className="relative h-[70vh]">
           <Image
-            src="/leistungen/Winterdienst.png"
+            src="/winterdienst/111.png"
             alt="Professioneller Winterdienst"
             fill
             className="object-cover object-center"
