@@ -108,7 +108,7 @@ export function Footer() {
             </h3>
             <div className="flex justify-center sm:justify-start gap-4">
               <a
-                href="https://instagram.com/traumplatz"
+                href="https://www.instagram.com/traumplatz_?igsh=MWVwdXJiMHgzYWk3bg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-brand-green transition-colors"
@@ -117,7 +117,7 @@ export function Footer() {
                 <InstagramIcon className="w-6 h-6" />
               </a>
               <a
-                href="https://tiktok.com/@traumplatz"
+                href="https://www.tiktok.com/@traumplatz?_r=1&_t=ZN-94hEQ9To1d0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-brand-green transition-colors"

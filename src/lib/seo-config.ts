@@ -29,8 +29,8 @@ export const businessInfo = {
     schema: ["Mo-Sa 07:00-20:00"],
   },
   socialMedia: {
-    instagram: "https://instagram.com/traumplatz",
-    tiktok: "https://tiktok.com/@traumplatz",
+    instagram: "https://www.instagram.com/traumplatz_?igsh=MWVwdXJiMHgzYWk3bg==",
+    tiktok: "https://www.tiktok.com/@traumplatz?_r=1&_t=ZN-94hEQ9To1d0",
   },
 } as const;
 

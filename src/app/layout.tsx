@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   ],
 
   // Autoren und Publisher
-  authors: [{ name: businessInfo.name }],
+  authors: [{ name: "Khaled Bakir" }],
   creator: businessInfo.name,
   publisher: businessInfo.name,
 

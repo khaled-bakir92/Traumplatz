@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Instagram } from "lucide-react";
 
 const navigation = [
@@ -28,6 +29,10 @@ function TikTokIcon({ className }: { className?: string }) {
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
@@ -51,7 +56,11 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-sm font-medium text-gray-700 transition-colors hover:text-brand-green"
+                className={`text-sm font-medium transition-colors hover:text-brand-green ${
+                  isActive(item.href)
+                    ? "text-brand-green border-b-2 border-brand-green pb-0.5"
+                    : "text-gray-700"
+                }`}
               >
                 {item.name}
               </Link>
@@ -61,7 +70,7 @@ export function Header() {
           {/* Social Icons */}
           <div className="hidden md:flex md:items-center md:gap-4">
             <a
-              href="https://instagram.com/traumplatz"
+              href="https://www.instagram.com/traumplatz_?igsh=MWVwdXJiMHgzYWk3bg=="
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 transition-colors hover:text-brand-green"
@@ -70,7 +79,7 @@ export function Header() {
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href="https://tiktok.com/@traumplatz"
+              href="https://www.tiktok.com/@traumplatz?_r=1&_t=ZN-94hEQ9To1d0"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 transition-colors hover:text-brand-green"
@@ -103,7 +112,11 @@ export function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-brand-green"
+                  className={`block px-4 py-2 text-sm font-medium hover:bg-gray-50 hover:text-brand-green ${
+                    isActive(item.href)
+                      ? "text-brand-green bg-green-50 border-l-4 border-brand-green"
+                      : "text-gray-700"
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -111,7 +124,7 @@ export function Header() {
               ))}
               <div className="flex items-center gap-4 px-4 pt-4 border-t">
                 <a
-                  href="https://instagram.com/traumplatz"
+                  href="https://www.instagram.com/traumplatz_?igsh=MWVwdXJiMHgzYWk3bg=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-700 hover:text-brand-green"
@@ -120,7 +133,7 @@ export function Header() {
                   <Instagram className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://tiktok.com/@traumplatz"
+                  href="https://www.tiktok.com/@traumplatz?_r=1&_t=ZN-94hEQ9To1d0"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-700 hover:text-brand-green"
