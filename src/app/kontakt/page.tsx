@@ -21,6 +21,7 @@ import {
   Loader2,
   AlertCircle,
 } from "lucide-react";
+import { EnvelopeAnimation } from "@/components/envelope-animation";
 
 // --- Confetti Particle ---
 interface Particle {
@@ -324,76 +325,122 @@ export default function KontaktPage() {
 
       <main className="pt-28 overflow-x-hidden">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-green-50 via-white to-emerald-50 py-12 md:py-24 px-4 overflow-hidden">
-          <div className="hidden md:block absolute top-20 left-10 w-72 h-72 bg-brand-green/5 rounded-full blur-3xl" />
-          <div className="hidden md:block absolute bottom-10 right-10 w-96 h-96 bg-emerald-200/20 rounded-full blur-3xl" />
+        <section className="relative overflow-hidden bg-white
+                            flex flex-col
+                            md:h-[calc(100vh-7rem)] md:min-h-[700px] md:bg-gradient-to-br md:from-green-50 md:via-white md:to-emerald-50 md:px-4">
 
-          <div className="relative max-w-6xl mx-auto">
-            {/* Breadcrumb */}
-            <nav className="flex items-center gap-2 text-sm text-gray-600 mb-8">
-              <Link href="/" className="hover:text-brand-green transition-colors">
-                Startseite
-              </Link>
-              <ChevronRight className="w-4 h-4" />
-              <span className="text-gray-900 font-medium">Kontakt</span>
-            </nav>
 
-            <div className="text-center max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 bg-brand-green/10 text-brand-green px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <MessageCircle className="w-4 h-4" />
-                Wir freuen uns auf Ihre Nachricht
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+
+          {/* Mobile: Animation und Text */}
+          <div className="flex md:hidden flex-col items-center justify-start w-full px-6 pt-6 pb-8 mt-4">
+            <div className="w-full flex justify-center pointer-events-none mb-4">
+              <EnvelopeAnimation />
+            </div>
+
+            <div className="flex flex-col items-center text-center">
+              <h1 className="text-3xl font-bold text-gray-900 mb-3">
                 Kontaktieren Sie uns
               </h1>
-              <p className="text-xl text-gray-600 leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed mb-8">
                 Haben Sie Fragen oder wünschen ein unverbindliches Angebot?
-                <br className="hidden md:block" />
                 Wir sind für Sie da – schnell, persönlich und unkompliziert.
               </p>
+              {/* Icon-Kreise */}
+              <div className="flex justify-center gap-10">
+                <a href={`tel:${businessInfo.contact.phone}`} className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 bg-[#8abf96] hover:bg-[#6aaf78] transition-colors rounded-full flex items-center justify-center shadow-lg">
+                    <Phone className="w-7 h-7 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-xs font-medium">Anrufen</span>
+                </a>
+                <a href={`mailto:${businessInfo.contact.email}`} className="flex flex-col items-center gap-2">
+                  <div className="w-16 h-16 bg-[#8abf96] hover:bg-[#6aaf78] transition-colors rounded-full flex items-center justify-center shadow-lg">
+                    <Mail className="w-7 h-7 text-white" />
+                  </div>
+                  <span className="text-gray-700 text-xs font-medium">E-Mail</span>
+                </a>
+              </div>
             </div>
           </div>
-        </section>
 
-        {/* Contact Cards */}
-        <section className="py-8 md:py-12 px-4 bg-white -mt-4 md:-mt-8 relative z-10">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-              {contactCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="group relative bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-brand-green/20 hover:-translate-y-1"
-                >
-                  <div
-                    className={`inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 ${card.color} rounded-lg md:rounded-xl mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <card.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+          {/* ==== DESKTOP CONTENT ==== */}
+          <div className="hidden md:flex flex-col flex-1 w-full relative justify-center py-12">
+            
+            {/* Top Container: Text + SVG */}
+            <div className="relative w-full pb-16 lg:pb-24">
+              
+              {/* Desktop: Animation rechts */}
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none
+                              w-[420px] opacity-60 lg:w-[520px] lg:opacity-70">
+                <EnvelopeAnimation />
+              </div>
+
+              {/* Text */}
+              <div className="relative z-10 max-w-6xl mx-auto w-full">
+                <nav className="flex items-center gap-2 text-sm text-gray-600 mb-8">
+                  <Link href="/" className="hover:text-brand-green transition-colors">
+                    Startseite
+                  </Link>
+                  <ChevronRight className="w-4 h-4" />
+                  <span className="text-gray-900 font-medium">Kontakt</span>
+                </nav>
+
+                <div className="text-center max-w-3xl mx-auto">
+                  <div className="inline-flex items-center gap-2 bg-brand-green/10 text-brand-green px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <MessageCircle className="w-4 h-4" />
+                    Wir freuen uns auf Ihre Nachricht
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-1 md:mb-2 text-sm md:text-base">{card.title}</h3>
-                  {card.href ? (
-                    <a
-                      href={card.href}
-                      target={card.title === "Adresse" ? "_blank" : undefined}
-                      rel={card.title === "Adresse" ? "noopener noreferrer" : undefined}
-                      className="text-gray-600 hover:text-brand-green transition-colors"
-                    >
-                      <p className="text-xs md:text-sm break-all md:break-normal">{card.content}</p>
-                      {card.subContent && (
-                        <p className="text-xs md:text-sm text-gray-500">{card.subContent}</p>
-                      )}
-                    </a>
-                  ) : (
-                    <>
-                      <p className="text-xs md:text-sm text-gray-600">{card.content}</p>
-                      {card.subContent && (
-                        <p className="text-xs md:text-sm text-brand-green font-medium mt-1">
-                          {card.subContent}
-                        </p>
-                      )}
-                    </>
-                  )}
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                    Kontaktieren Sie uns
+                  </h1>
+                  <p className="text-xl text-gray-600 leading-relaxed">
+                    Haben Sie Fragen oder wünschen ein unverbindliches Angebot?
+                    <br />
+                    Wir sind für Sie da – schnell, persönlich und unkompliziert.
+                  </p>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* Bottom Container: Contact Cards */}
+            <div className="relative z-20 max-w-6xl mx-auto w-full">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                {contactCards.map((card) => (
+                  <div
+                    key={card.title}
+                    className="group relative bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-brand-green/20 hover:-translate-y-1 flex flex-col items-center text-center"
+                  >
+                    <div
+                      className={`inline-flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-[#8abf96] rounded-lg md:rounded-xl mb-3 md:mb-4 group-hover:bg-[#6aaf78] group-hover:scale-110 transition-all duration-300`}
+                    >
+                      <card.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-1 md:mb-2 text-sm md:text-base">{card.title}</h3>
+                    {card.href ? (
+                      <a
+                        href={card.href}
+                        target={card.title === "Adresse" ? "_blank" : undefined}
+                        rel={card.title === "Adresse" ? "noopener noreferrer" : undefined}
+                        className="text-gray-600 hover:text-brand-green transition-colors"
+                      >
+                        <p className="text-xs md:text-sm break-all md:break-normal">{card.content}</p>
+                        {card.subContent && (
+                          <p className="text-xs md:text-sm text-gray-500">{card.subContent}</p>
+                        )}
+                      </a>
+                    ) : (
+                      <>
+                        <p className="text-xs md:text-sm text-gray-600">{card.content}</p>
+                        {card.subContent && (
+                          <p className="text-xs md:text-sm text-brand-green font-medium mt-1">
+                            {card.subContent}
+                          </p>
+                        )}
+                      </>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

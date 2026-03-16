@@ -125,8 +125,25 @@ export default function UeberUnsPage() {
 
       <main className="pt-28">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-green-50 to-white py-16 md:py-24 px-4">
-          <div className="max-w-6xl mx-auto">
+        <section className="relative overflow-hidden py-16 md:py-24 px-4">
+          {/* Desktop Hintergrundbild */}
+          <Image
+            src="/uberuns-desktop.png"
+            alt=""
+            fill
+            className="object-cover object-center hidden md:block"
+            priority
+          />
+          {/* Mobile Hintergrundbild */}
+          <Image
+            src="/uberuns-handy.png"
+            alt=""
+            fill
+            className="object-cover object-center md:hidden"
+            priority
+          />
+
+          <div className="max-w-6xl mx-auto relative z-10">
             {/* Breadcrumb */}
             <nav className="flex items-center gap-2 text-sm text-gray-600 mb-8">
               <Link href="/" className="hover:text-brand-green transition-colors">
@@ -156,21 +173,17 @@ export default function UeberUnsPage() {
                     {businessInfo.contact.phoneDisplay}
                   </a>
                 </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="rounded-full px-8 border-brand-green text-brand-green hover:bg-green-50"
+                <a
+                  href={`https://wa.me/${businessInfo.contact.whatsapp.replace(/\s+/g, "").replace("+", "")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-0 hover:gap-2 hover:scale-105 transition-all duration-300"
                 >
-                  <a
-                    href={`https://wa.me/${businessInfo.contact.whatsapp.replace(/\s+/g, "").replace("+", "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-2" />
+                  <Image src="/whatsapp.svg" alt="WhatsApp" width={48} height={48} className="flex-shrink-0 [filter:invert(35%)_sepia(60%)_saturate(400%)_hue-rotate(90deg)_brightness(90%)]" />
+                  <span className="max-w-0 group-hover:max-w-xs overflow-hidden whitespace-nowrap transition-all duration-300 text-sm font-semibold text-brand-green">
                     WhatsApp
-                  </a>
-                </Button>
+                  </span>
+                </a>
               </div>
             </div>
           </div>
