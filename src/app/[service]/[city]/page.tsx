@@ -225,9 +225,14 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
             </nav>
 
             {/* Einziger H1 pro Seite - SEO-optimiert */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-sm md:text-base font-medium text-gray-400 mb-2 uppercase tracking-wide">
               {service.name} in {city.name}
             </h1>
+
+            {/* Emotionaler Tagline */}
+            <p className="text-xl font-bold text-gray-900 mb-6">
+              Wir kümmern uns in {city.name}.<br />Sie entspannen.
+            </p>
 
             {/* Stadt-spezifische Einleitung */}
             <p className="text-xl text-gray-700 max-w-3xl mb-8">{cityIntro}</p>

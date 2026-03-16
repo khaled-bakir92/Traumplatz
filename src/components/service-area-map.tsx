@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import type { Map as LeafletMap } from "leaflet";
 
 interface ServiceAreaCity {
@@ -26,6 +27,7 @@ export function ServiceAreaMap({
   variant = "green",
 }: ServiceAreaMapProps) {
   const mapRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     let map: LeafletMap | null = null;
@@ -78,17 +80,12 @@ export function ServiceAreaMap({
           offset: [0, -8],
         });
 
-        marker.bindPopup(
-          `<div style="min-width:170px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-            <p style="margin:0 0 6px;font-weight:600;color:#111827;">${city.name}</p>
-            <p style="margin:0 0 8px;font-size:12px;color:#4b5563;">${
-              city.isHQ
-                ? "Hauptstandort"
-                : `ca. ${city.distanceFromHQ} km von Bensheim`
-            }</p>
-            <a href="/${serviceSlug}/${city.slug}" style="font-size:12px;font-weight:600;color:${palette.linkColor};text-decoration:none;">Service in ${city.name} ansehen</a>
-          </div>`
-        );
+        marker.on("click", () => {
+          router.push(`/${serviceSlug}/${city.slug}`);
+        });
+
+        const el = marker.getElement() as HTMLElement | undefined;
+        if (el) el.style.cursor = "pointer";
       });
     }
 

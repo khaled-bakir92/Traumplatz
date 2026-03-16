@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
+import { WinterdienstHeroBackground } from "@/components/winterdienst-hero-background";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, MapPin, MessageCircle, Phone } from "lucide-react";
@@ -74,35 +75,65 @@ export default function BensheimWinterdienstPage() {
       <FAQJsonLd questions={winterFaqs} />
       <Header />
       <main className="pt-28">
-        <section className="h-[calc(100svh-7rem)] flex items-center relative overflow-hidden">
-          <Image src="/winterdienst/111.png" alt={`Winterdienst in ${city.name}`} fill className="object-cover object-center" priority />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.6) 100%)" }} />
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-20 relative z-10">
-            <div className="max-w-4xl">
-              <nav className="-mt-4 sm:mt-0 mb-4 sm:mb-6">
-                <ol className="flex items-center gap-2 text-sm text-gray-600">
-                  <li><Link href="/" className="hover:text-sky-600">Home</Link></li>
-                  <span>/</span>
-                  <li><Link href="/winterdienst" className="hover:text-sky-600">Winterdienst</Link></li>
-                  <span>/</span>
-                  <li className="text-sky-600 font-medium">{city.name}</li>
-                </ol>
-              </nav>
-              <p className="text-xs sm:text-sm text-sky-600 font-medium tracking-normal sm:tracking-wider uppercase mb-3 sm:mb-6">Professioneller Winterdienst in {city.name}</p>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-8 leading-[1.1]">
-                Wir sichern Ihre Flächen in {city.name}.<span className="text-sky-700"> Sie bleiben sorgenfrei im Winter.</span>
-              </h1>
-              <p className="text-lg sm:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed">{city.description} Zuverlässiger Winterdienst für Wohnanlagen, Gewerbe und Praxen in {city.name} - pünktlich, gründlich und einsatzbereit bei Glätte.</p>
-              <div className="mt-4 sm:mt-0 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-6">
-                <Button asChild size="lg" className="w-full bg-sky-700 hover:bg-sky-800 text-white px-4 py-4 text-sm font-medium rounded-xl sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full">
-                  <a href={`tel:${businessInfo.contact.phone}`}><Phone className="w-5 h-5 mr-3" />Jetzt anrufen</a>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="w-full border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-4 py-4 text-sm font-medium rounded-xl bg-transparent sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full">
-                  <Link href="#services">Mehr erfahren<ArrowRight className="w-5 h-5 ml-2" /></Link>
-                </Button>
+        <section className="h-[calc(100svh-7rem)] relative overflow-hidden">
+          <WinterdienstHeroBackground
+            contentDark={
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-20 h-full flex items-center">
+                <div className="max-w-4xl">
+                  <nav className="-mt-4 sm:mt-0 mb-4 sm:mb-6">
+                    <ol className="flex items-center gap-2 text-sm text-gray-600">
+                      <li><Link href="/" className="hover:text-sky-600">Home</Link></li>
+                      <span>/</span>
+                      <li><Link href="/winterdienst" className="hover:text-sky-600">Winterdienst</Link></li>
+                      <span>/</span>
+                      <li className="text-sky-600 font-medium">{city.name}</li>
+                    </ol>
+                  </nav>
+                  <p className="text-xs sm:text-sm text-sky-600 font-medium tracking-normal sm:tracking-wider uppercase mb-3 sm:mb-6">Professioneller Winterdienst in {city.name}</p>
+                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-[1.1]">
+                    Wir sichern Ihre Flächen in {city.name}.<span className="text-sky-700"> Sie bleiben sorgenfrei im Winter.</span>
+                  </h1>
+                  <p className="text-lg sm:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed">{city.description} Zuverlässiger Winterdienst für Wohnanlagen, Gewerbe und Praxen in {city.name} - pünktlich, gründlich und einsatzbereit bei Glätte.</p>
+                  <div className="mt-4 sm:mt-0 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-6">
+                    <Button asChild size="lg" className="w-full bg-sky-700 hover:bg-sky-800 text-white px-4 py-4 text-sm font-medium rounded-xl sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full">
+                      <a href={`tel:${businessInfo.contact.phone}`}><Phone className="w-5 h-5 mr-3" />Jetzt anrufen</a>
+                    </Button>
+                    <Button asChild variant="outline" size="lg" className="w-full border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-4 py-4 text-sm font-medium rounded-xl bg-transparent sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full">
+                      <Link href="#services">Mehr erfahren<ArrowRight className="w-5 h-5 ml-2" /></Link>
+                    </Button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            }
+            contentLight={
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-16 lg:py-20 h-full flex items-center">
+                <div className="max-w-4xl">
+                  <nav className="-mt-4 sm:mt-0 mb-4 sm:mb-6">
+                    <ol className="flex items-center gap-2 text-sm text-white/70">
+                      <li><Link href="/" className="hover:text-white">Home</Link></li>
+                      <span>/</span>
+                      <li><Link href="/winterdienst" className="hover:text-white">Winterdienst</Link></li>
+                      <span>/</span>
+                      <li className="text-sky-300 font-medium">{city.name}</li>
+                    </ol>
+                  </nav>
+                  <p className="text-xs sm:text-sm text-sky-300 font-medium tracking-normal sm:tracking-wider uppercase mb-3 sm:mb-6">Professioneller Winterdienst in {city.name}</p>
+                  <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-[1.1]">
+                    Wir sichern Ihre Flächen in {city.name}.<span className="text-sky-300"> Sie bleiben sorgenfrei im Winter.</span>
+                  </h1>
+                  <p className="text-lg sm:text-2xl text-white/80 mb-12 max-w-2xl leading-relaxed">{city.description} Zuverlässiger Winterdienst für Wohnanlagen, Gewerbe und Praxen in {city.name} - pünktlich, gründlich und einsatzbereit bei Glätte.</p>
+                  <div className="mt-4 sm:mt-0 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-6">
+                    <Button asChild size="lg" className="w-full bg-sky-600 hover:bg-sky-500 text-white px-4 py-4 text-sm font-medium rounded-xl sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full">
+                      <a href={`tel:${businessInfo.contact.phone}`}><Phone className="w-5 h-5 mr-3" />Jetzt anrufen</a>
+                    </Button>
+                    <Button asChild variant="outline" size="lg" className="w-full border-white text-white hover:bg-white hover:text-gray-900 px-4 py-4 text-sm font-medium rounded-xl bg-transparent sm:w-auto sm:px-10 sm:py-7 sm:text-lg sm:rounded-full">
+                      <Link href="#services">Mehr erfahren<ArrowRight className="w-5 h-5 ml-2" /></Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            }
+          />
         </section>
 
         <section id="services" className="py-24 bg-section-gray">

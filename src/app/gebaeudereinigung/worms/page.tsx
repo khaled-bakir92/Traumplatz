@@ -97,7 +97,7 @@ export default function WormsGebaeudereinigungPage() {
                 </ol>
               </nav>
               <p className="text-xs sm:text-sm text-sky-600 font-medium tracking-normal sm:tracking-wider uppercase mb-3 sm:mb-6">Professionelle Gebäudereinigung in {city.name}</p>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-8 leading-[1.1]">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-[1.1]">
                 Wir reinigen Ihr Objekt in {city.name}.<span className="text-sky-700"> Sie konzentrieren sich auf Ihr Geschäft.</span>
               </h1>
               <p className="text-lg sm:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed">{city.description} Zuverlässige Gebäudereinigung für Büros, Praxen und Wohnanlagen in {city.name} - gründlich, diskret und termintreu.</p>
