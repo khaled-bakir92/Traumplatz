@@ -108,7 +108,7 @@ function getServiceContent(service: Service, city: City) {
       features: [
         "Kleinreparaturen und Instandhaltung",
         "Objektbetreuung und Kontrollgänge",
-        "Treppenhausreinigung",
+        "Treppenreinigung",
         "Mülltonnenservice",
         "Schlüsselverwaltung",
         "Handwerkerkoordination",
@@ -123,7 +123,7 @@ function getServiceContent(service: Service, city: City) {
     gebaeudereinigung: {
       features: [
         "Büroreinigung und Unterhaltsreinigung",
-        "Treppenhausreinigung",
+        "Treppenreinigung",
         "Fensterreinigung",
         "Grundreinigung",
         "Bauendreinigung",

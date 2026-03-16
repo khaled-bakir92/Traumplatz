@@ -89,11 +89,11 @@ export const services: Service[] = [
     description:
       "Professionelle Gebäudereinigung für Büros, Praxen, Treppenhäuser und Gewerbeobjekte. Unterhaltsreinigung, Grundreinigung und Sonderreinigung.",
     metaDescription:
-      "Professionelle Gebäudereinigung für saubere Räumlichkeiten. Büroreinigung, Treppenhausreinigung und mehr. Gründlich und zuverlässig.",
+      "Professionelle Gebäudereinigung für saubere Räumlichkeiten. Büroreinigung, Treppenreinigung und mehr. Gründlich und zuverlässig.",
     keywords: [
       "Gebäudereinigung",
       "Büroreinigung",
-      "Treppenhausreinigung",
+      "Treppenreinigung",
       "Unterhaltsreinigung",
       "Reinigungsservice",
       "Grundreinigung",
@@ -432,7 +432,7 @@ export const faqs: FAQ[] = [
   {
     question: "Welche Aufgaben übernimmt ein Hausmeisterservice konkret?",
     answer:
-      "Unser Hausmeisterservice deckt ein breites Spektrum ab: Kleinreparaturen und Wartungsarbeiten, Leuchtmittelwechsel, Treppenhausreinigung, Mülltonnenmanagement und Stellplatzpflege, Grünpflege und Winterdienst, Schlüsselverwaltung, Koordination von Handwerkern sowie die Übernahme der Verkehrssicherungspflicht. Sie erhalten alles aus einer Hand – zuverlässig, dokumentiert und zu festen Konditionen. Das spart Ihnen Zeit, Nerven und die Kosten für mehrere einzelne Dienstleister.",
+      "Unser Hausmeisterservice deckt ein breites Spektrum ab: Kleinreparaturen und Wartungsarbeiten, Leuchtmittelwechsel, Treppenreinigung, Mülltonnenmanagement und Stellplatzpflege, Grünpflege und Winterdienst, Schlüsselverwaltung, Koordination von Handwerkern sowie die Übernahme der Verkehrssicherungspflicht. Sie erhalten alles aus einer Hand – zuverlässig, dokumentiert und zu festen Konditionen. Das spart Ihnen Zeit, Nerven und die Kosten für mehrere einzelne Dienstleister.",
   },
   {
     question: "Ab wann sind Grundstückseigentümer zur Schneeräumung verpflichtet?",

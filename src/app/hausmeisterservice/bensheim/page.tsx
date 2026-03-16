@@ -58,7 +58,7 @@ const processSteps = [
 ];
 
 const hausmeisterFaqs = [
-  { question: `Welche Aufgaben übernehmen Sie als Hausmeisterservice in ${city.name}?`, answer: `In ${city.name} übernehmen wir Objektbetreuung, Kontrollgänge, Kleinreparaturen, Treppenhausreinigung und Winterdienst - alles aus einer Hand für Ihre Immobilie in ${city.districts.slice(0, 3).join(", ")} und dem gesamten Stadtgebiet.` },
+  { question: `Welche Aufgaben übernehmen Sie als Hausmeisterservice in ${city.name}?`, answer: `In ${city.name} übernehmen wir Objektbetreuung, Kontrollgänge, Kleinreparaturen, Treppenreinigung und Winterdienst - alles aus einer Hand für Ihre Immobilie in ${city.districts.slice(0, 3).join(", ")} und dem gesamten Stadtgebiet.` },
   { question: `Wie schnell sind Sie bei Problemen in ${city.name} vor Ort?`, answer: `Da wir direkt in Bensheim ansässig sind, können wir Ersttermine kurzfristig und flexibel anbieten.` },
   { question: `Bieten Sie feste Kontrollgänge für Mehrfamilienhäuser in ${city.name} an?`, answer: `Ja, wir erstellen für Objekte in ${city.name} verbindliche Kontrollpläne und dokumentieren alle Begehungen nachvollziehbar - für Eigentümer, Verwaltung und Mieter.` },
   { question: `Ist der Hausmeisterservice in ${city.name} auch für Kleinreparaturen geeignet?`, answer: `Ja, wir erledigen in ${city.name} viele Kleinreparaturen direkt. Bei größeren Gewerken steuern wir passende Fachbetriebe und begleiten die Ausführung.` },

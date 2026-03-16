@@ -69,7 +69,7 @@ const services: CleaningServiceItem[] = [
   },
   {
     image: "/glasreinigung/leistugen/Treppenhausreinigung-v2.png",
-    title: "Treppenhausreinigung",
+    title: "Treppenreinigung",
     description: "Saubere Eingangs- und Treppenbereiche mit System",
   },
   {
@@ -281,7 +281,7 @@ export default function GebaeudereinigungPage() {
                       }
                     />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-white mb-1.5 transition-colors">
+                  <h3 className="text-sm sm:text-lg font-bold text-gray-900 group-hover:text-white mb-1.5 transition-colors">
                     {serviceItem.title}
                   </h3>
                   <p className="text-xs text-gray-500 group-hover:text-white/80 transition-colors">

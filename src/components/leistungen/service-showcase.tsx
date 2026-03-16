@@ -98,12 +98,12 @@ export function ServiceShowcase({
               {service.features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-white border border-gray-100 hover:border-brand-green/30 hover:shadow-sm transition-all duration-200 group/feature"
+                  className="flex flex-col sm:flex-row items-start gap-2 sm:gap-3 p-3 rounded-xl bg-white border border-gray-100 hover:border-brand-green/30 hover:shadow-sm transition-all duration-200 group/feature"
                 >
-                  <div className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 bg-green-50 rounded-lg group-hover/feature:bg-green-100 transition-colors">
+                  <div className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 bg-green-50 rounded-lg group-hover/feature:bg-green-100 transition-colors sm:self-auto self-center">
                     <feature.icon className="w-5 h-5 text-brand-green" />
                   </div>
-                  <div>
+                  <div className="min-w-0 text-center sm:text-left">
                     <h3 className="font-semibold text-gray-900 text-sm">
                       {feature.title}
                     </h3>

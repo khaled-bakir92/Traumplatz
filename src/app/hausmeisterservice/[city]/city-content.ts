@@ -91,7 +91,7 @@ export const cityContent: Record<string, CityPageContent> = {
       },
       {
         icon: Sparkles,
-        title: "Treppenhausreinigung",
+        title: "Treppenreinigung",
         description: "Regelmäßige Reinigung für ein gepflegtes Erscheinungsbild",
       },
       {
@@ -285,7 +285,7 @@ export const cityContent: Record<string, CityPageContent> = {
       },
       {
         icon: Sparkles,
-        title: "Treppenhausreinigung",
+        title: "Treppenreinigung",
         description:
           "Ein sauberes Treppenhaus ist die Visitenkarte jedes Mehrfamilienhauses. In Lorsch sorgen wir für gepflegte Eingänge, gereinigte Flure und einladende Hauseingänge.",
       },
@@ -323,7 +323,7 @@ export const cityContent: Record<string, CityPageContent> = {
       {
         question: "Was kostet ein Hausmeisterservice in Lorsch?",
         answer:
-          "Die Kosten richten sich nach Umfang und Häufigkeit der Leistungen. Für ein typisches Mehrfamilienhaus in Lorsch mit Treppenhausreinigung, Kontrollgängen und Kleinreparaturen starten unsere monatlichen Pauschalen bereits ab einem fairen Preis. Kontaktieren Sie uns für ein individuelles Angebot.",
+          "Die Kosten richten sich nach Umfang und Häufigkeit der Leistungen. Für ein typisches Mehrfamilienhaus in Lorsch mit Treppenreinigung, Kontrollgängen und Kleinreparaturen starten unsere monatlichen Pauschalen bereits ab einem fairen Preis. Kontaktieren Sie uns für ein individuelles Angebot.",
       },
       {
         question: "Betreuen Sie auch Objekte im Ortsteil Seehof?",
@@ -488,7 +488,7 @@ export const cityContent: Record<string, CityPageContent> = {
       },
       {
         icon: Sparkles,
-        title: "Treppenhausreinigung & Gebäudepflege",
+        title: "Treppenreinigung & Gebäudepflege",
         description:
           "Saubere Treppenhäuser, gepflegte Eingangsbereiche und ordentliche Gemeinschaftsräume. Wir reinigen regelmäßig und gründlich - in Wohnanlagen beider Ortsteile.",
       },
@@ -531,7 +531,7 @@ export const cityContent: Record<string, CityPageContent> = {
       {
         question: "Was kostet ein Hausmeisterservice in Alsbach-Hähnlein?",
         answer:
-          "Die Kosten hängen vom Leistungsumfang ab. Für ein Mehrfamilienhaus mit Standardleistungen wie Treppenhausreinigung, Kontrollgängen und Winterdienst erstellen wir Ihnen gerne ein individuelles Angebot. Die Erstberatung vor Ort ist kostenlos.",
+          "Die Kosten hängen vom Leistungsumfang ab. Für ein Mehrfamilienhaus mit Standardleistungen wie Treppenreinigung, Kontrollgängen und Winterdienst erstellen wir Ihnen gerne ein individuelles Angebot. Die Erstberatung vor Ort ist kostenlos.",
       },
       {
         question: "Wie schnell können Sie in Alsbach-Hähnlein vor Ort sein?",
@@ -693,11 +693,11 @@ export const cityContent: Record<string, CityPageContent> = {
         icon: Home,
         title: "Wohnanlagen & Mehrfamilienhäuser",
         description:
-          "Treppenhausreinigung, Mülltonnenservice, Kontrollgänge und Kleinreparaturen für Wohnanlagen in allen Darmstädter Stadtteilen. Ein fester Hausmeister kennt Ihr Objekt.",
+          "Treppenreinigung, Mülltonnenservice, Kontrollgänge und Kleinreparaturen für Wohnanlagen in allen Darmstädter Stadtteilen. Ein fester Hausmeister kennt Ihr Objekt.",
       },
       {
         icon: Sparkles,
-        title: "Gebäude- und Treppenhausreinigung",
+        title: "Gebäude- und Treppenreinigung",
         description:
           "Regelmäßige Unterhaltsreinigung für saubere Treppenhäuser, Eingangsbereiche und Gemeinschaftsräume. Flexibel planbar, auch außerhalb der Geschäftszeiten.",
       },
@@ -739,7 +739,7 @@ export const cityContent: Record<string, CityPageContent> = {
       {
         question: "Haben Sie Erfahrung mit größeren Gewerbeimmobilien?",
         answer:
-          "Ja, wir betreuen in Darmstadt sowohl klassische Wohnanlagen als auch Bürogebäude und gemischt genutzte Immobilien. Unser Leistungsspektrum reicht von der einfachen Treppenhausreinigung bis zum umfassenden Facility Management.",
+          "Ja, wir betreuen in Darmstadt sowohl klassische Wohnanlagen als auch Bürogebäude und gemischt genutzte Immobilien. Unser Leistungsspektrum reicht von der einfachen Treppenreinigung bis zum umfassenden Facility Management.",
       },
       {
         question: "Bieten Sie auch Notdienst in Darmstadt an?",
@@ -782,7 +782,7 @@ export const cityContent: Record<string, CityPageContent> = {
       "Von Hohensachsen bis Lützelsachsen: Unser Hausmeisterservice sorgt dafür, dass Ihre Weinheimer Immobilie in bestem Zustand bleibt – zuverlässig, gründlich und mit nur 15 Minuten Anfahrt.",
     introTitle: "Ihr Hausmeisterservice für Weinheim und alle Ortsteile",
     introText:
-      "Weinheim liegt zwischen Odenwald und Rheinebene und vereint historischen Charme mit modernem Wohnen. Ob gepflegte Mehrfamilienhäuser in der Altstadt, Wohnanlagen in Sulzbach oder Eigenheime in den Bergorten – unser Hausmeisterservice kennt die Besonderheiten jeder Lage. Wir kümmern uns um Treppenhausreinigung, Außenanlagen, Kleinreparaturen und saisonale Arbeiten, damit Sie sich auf Ihre Immobilie verlassen können.",
+      "Weinheim liegt zwischen Odenwald und Rheinebene und vereint historischen Charme mit modernem Wohnen. Ob gepflegte Mehrfamilienhäuser in der Altstadt, Wohnanlagen in Sulzbach oder Eigenheime in den Bergorten – unser Hausmeisterservice kennt die Besonderheiten jeder Lage. Wir kümmern uns um Treppenreinigung, Außenanlagen, Kleinreparaturen und saisonale Arbeiten, damit Sie sich auf Ihre Immobilie verlassen können.",
     localBenefits: [
       "Nur 15 km entfernt – schnelle Einsätze vor Ort",
       "Alle Ortsteile von Weinheim abgedeckt",
@@ -804,7 +804,7 @@ export const cityContent: Record<string, CityPageContent> = {
       },
       {
         icon: Sparkles,
-        title: "Treppenhausreinigung",
+        title: "Treppenreinigung",
         description:
           "Gründliche Reinigung von Treppenhäusern, Eingangsbereichen und Gemeinschaftsflächen nach festem Turnus.",
       },
@@ -862,7 +862,7 @@ export const cityContent: Record<string, CityPageContent> = {
     ],
     testimonial: {
       quote:
-        "Seit Traumplatz unseren Hausmeisterservice übernommen hat, läuft alles reibungslos. Treppenhausreinigung, Winterdienst, Gartenarbeit – alles aus einer Hand und immer pünktlich.",
+        "Seit Traumplatz unseren Hausmeisterservice übernommen hat, läuft alles reibungslos. Treppenreinigung, Winterdienst, Gartenarbeit – alles aus einer Hand und immer pünktlich.",
       author: "Hausverwaltung Bergstraße-Neckar",
       location: "Weinheim-Sulzbach",
       rating: 5,
@@ -889,7 +889,7 @@ export const cityContent: Record<string, CityPageContent> = {
       "Ob Wohnanlage am Vogelpark, Gewerbeobjekt im Gewerbegebiet West oder Mehrfamilienhaus in der Innenstadt – unser Hausmeisterservice hält Ihre Viernheimer Immobilie in Schuss.",
     introTitle: "Zuverlässiger Hausmeisterservice in Viernheim – 34.000 Einwohner, ein Ansprechpartner",
     introText:
-      "Viernheim im Rhein-Neckar-Dreieck wächst stetig: Neue Wohnanlagen, Gewerbegebiete und sanierte Bestandsimmobilien brauchen professionelle Betreuung. Unser Hausmeisterservice übernimmt Treppenhausreinigung, Außenanlagenpflege, Kleinreparaturen und Winterdienst für Ihre Objekte in Viernheim. Mit nur 18 km Anfahrt von unserem Standort in Bensheim sind wir schnell vor Ort – auch bei dringenden Einsätzen.",
+      "Viernheim im Rhein-Neckar-Dreieck wächst stetig: Neue Wohnanlagen, Gewerbegebiete und sanierte Bestandsimmobilien brauchen professionelle Betreuung. Unser Hausmeisterservice übernimmt Treppenreinigung, Außenanlagenpflege, Kleinreparaturen und Winterdienst für Ihre Objekte in Viernheim. Mit nur 18 km Anfahrt von unserem Standort in Bensheim sind wir schnell vor Ort – auch bei dringenden Einsätzen.",
     localBenefits: [
       "18 km Anfahrt – unter 25 Minuten vor Ort",
       "Wohn- und Gewerbeobjekte in ganz Viernheim",
@@ -901,7 +901,7 @@ export const cityContent: Record<string, CityPageContent> = {
         icon: Building2,
         title: "Hausmeister für Wohnanlagen",
         description:
-          "Komplettbetreuung von Mehrfamilienhäusern in Viernheim: Treppenhausreinigung, Mülltonnenservice, Beleuchtungskontrolle und Gemeinschaftsflächen.",
+          "Komplettbetreuung von Mehrfamilienhäusern in Viernheim: Treppenreinigung, Mülltonnenservice, Beleuchtungskontrolle und Gemeinschaftsflächen.",
       },
       {
         icon: Target,
@@ -911,7 +911,7 @@ export const cityContent: Record<string, CityPageContent> = {
       },
       {
         icon: Sparkles,
-        title: "Treppenhausreinigung",
+        title: "Treppenreinigung",
         description:
           "Regelmäßige Reinigung von Treppenhäusern, Fluren und Eingangsbereichen nach festem Reinigungsplan – sauber und dokumentiert.",
       },
@@ -969,7 +969,7 @@ export const cityContent: Record<string, CityPageContent> = {
     ],
     testimonial: {
       quote:
-        "Unser Mehrfamilienhaus in Viernheim wird seit einem Jahr von Traumplatz betreut. Treppenhausreinigung, Gartenpflege und Winterdienst laufen wie am Schnürchen – endlich ein Hausmeisterservice, auf den man sich verlassen kann.",
+        "Unser Mehrfamilienhaus in Viernheim wird seit einem Jahr von Traumplatz betreut. Treppenreinigung, Gartenpflege und Winterdienst laufen wie am Schnürchen – endlich ein Hausmeisterservice, auf den man sich verlassen kann.",
       author: "Immobilienverwaltung Rhein-Neckar",
       location: "Viernheim-Innenstadt",
       rating: 5,

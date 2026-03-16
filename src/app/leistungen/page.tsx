@@ -176,7 +176,7 @@ const serviceShowcases: ServiceShowcaseData[] = [
       },
       {
         icon: Footprints,
-        title: "Treppenhausreinigung",
+        title: "Treppenreinigung",
         description: "Gemeinschaftsflächen",
       },
       {

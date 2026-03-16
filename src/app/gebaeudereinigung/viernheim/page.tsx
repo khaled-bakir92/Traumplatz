@@ -31,7 +31,7 @@ const { service, city } = getPageData();
 
 export const metadata: Metadata = {
   title: `${service.name} in ${city.name} | Professionelle Sauberkeit vor Ort`,
-  description: `Professionelle ${service.name} in ${city.name} (${city.postalCodes.join(", ")}). Büroreinigung, Treppenhausreinigung und Grundreinigung in ${city.name} und ${city.districts.slice(0, 3).join(", ")}.`,
+  description: `Professionelle ${service.name} in ${city.name} (${city.postalCodes.join(", ")}). Büroreinigung, Treppenreinigung und Grundreinigung in ${city.name} und ${city.districts.slice(0, 3).join(", ")}.`,
   keywords: [...service.keywords, city.name, ...city.districts, ...city.postalCodes],
   alternates: { canonical: `/${service.slug}/${city.slug}` },
   openGraph: {
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 
 const serviceItems: CleaningServiceItem[] = [
   { image: "/glasreinigung/leistugen/Unterhaltsreinigung-v2.png", title: "Unterhaltsreinigung", description: `Regelmäßige Reinigung für dauerhaft gepflegte Flächen in ${city.name}` },
-  { image: "/glasreinigung/leistugen/Treppenhausreinigung-v2.png", title: "Treppenhausreinigung", description: "Saubere Eingangs- und Treppenbereiche mit System" },
+  { image: "/glasreinigung/leistugen/Treppenhausreinigung-v2.png", title: "Treppenreinigung", description: "Saubere Eingangs- und Treppenbereiche mit System" },
   { image: "/glasreinigung/leistugen/Buroreinigung-v2.png", title: "Büroreinigung", description: "Hygienische Arbeitsplätze für Teams und Kundenkontakt", fit: "cover" },
   { image: "/glasreinigung/leistugen/Glasreinigung-v2.png", title: "Glasreinigung", description: "Streifenfreie Fenster und Glaselemente innen und außen", fit: "contain", imageClass: "object-contain scale-110 p-0" },
   { image: "/glasreinigung/leistugen/Grundreinigung-v2.png", title: "Grundreinigung", description: "Intensive Reinigung bei Übergaben und Sonderbedarfen" },
@@ -124,7 +124,7 @@ export default function ViernheimGebaeudereinigungPage() {
                   <div className="relative h-16 sm:h-20 rounded-xl mb-3 overflow-hidden">
                     <Image src={item.image} alt={`${item.title} in ${city.name}`} fill className={item.imageClass ? item.imageClass : item.fit === "cover" ? "object-cover" : "object-contain p-2"} />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-white mb-1.5 transition-colors">{item.title}</h3>
+                  <h3 className="text-sm sm:text-lg font-bold text-gray-900 group-hover:text-white mb-1.5 transition-colors">{item.title}</h3>
                   <p className="text-xs text-gray-500 group-hover:text-white/80 transition-colors">{item.description}</p>
                 </div>
               ))}
