@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 
 interface AnimatedCounterProps {
   end: number;
@@ -19,25 +19,7 @@ export function AnimatedCounter({
   const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          animateCount();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAnimated]);
-
-  const animateCount = () => {
+  const animateCount = useCallback(() => {
     const startTime = Date.now();
     const startValue = 0;
 
@@ -57,7 +39,25 @@ export function AnimatedCounter({
     };
 
     requestAnimationFrame(updateCount);
-  };
+  }, [duration, end]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          animateCount();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated, animateCount]);
 
   // Format number (e.g., 1000 -> 1K)
   const formatNumber = (num: number): string => {

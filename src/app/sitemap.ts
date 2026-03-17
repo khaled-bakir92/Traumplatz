@@ -1,50 +1,49 @@
 import { MetadataRoute } from "next";
 import {
   services,
-  cities,
   businessInfo,
   generateAllServiceCityParams,
+  sitemapDates,
 } from "@/lib/seo-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = businessInfo.url;
-  const now = new Date();
 
   // Hauptseiten
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: now,
+      lastModified: new Date(sitemapDates.homepage),
       changeFrequency: "weekly",
       priority: 1.0,
     },
     {
       url: `${baseUrl}/leistungen`,
-      lastModified: now,
+      lastModified: new Date(sitemapDates.servicePages),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/kontakt`,
-      lastModified: now,
+      lastModified: new Date(sitemapDates.homepage),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/ueber-uns`,
-      lastModified: now,
+      lastModified: new Date(sitemapDates.homepage),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/impressum`,
-      lastModified: now,
+      lastModified: new Date(sitemapDates.staticPages),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${baseUrl}/datenschutz`,
-      lastModified: now,
+      lastModified: new Date(sitemapDates.staticPages),
       changeFrequency: "yearly",
       priority: 0.3,
     },
@@ -53,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Service-Übersichtsseiten (z.B. /gartenpflege)
   const servicePages: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${baseUrl}/${service.slug}`,
-    lastModified: now,
+    lastModified: new Date(sitemapDates.servicePages),
     changeFrequency: "weekly" as const,
     priority: 0.9,
   }));
@@ -63,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localPages: MetadataRoute.Sitemap = serviceParams.map(
     ({ service, city }) => ({
       url: `${baseUrl}/${service}/${city}`,
-      lastModified: now,
+      lastModified: new Date(sitemapDates.cityPages),
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })

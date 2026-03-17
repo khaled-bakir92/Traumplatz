@@ -35,27 +35,37 @@ interface Particle {
   shape: "rect" | "circle";
 }
 
+const confettiColors = [
+  "#16a34a",
+  "#22c55e",
+  "#86efac",
+  "#fbbf24",
+  "#f97316",
+  "#60a5fa",
+  "#a78bfa",
+  "#f472b6",
+];
+
 function Confetti() {
-  const colors = [
-    "#16a34a",
-    "#22c55e",
-    "#86efac",
-    "#fbbf24",
-    "#f97316",
-    "#60a5fa",
-    "#a78bfa",
-    "#f472b6",
-  ];
-  const particles: Particle[] = Array.from({ length: 60 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    color: colors[Math.floor(Math.random() * colors.length)],
-    size: Math.random() * 8 + 5,
-    duration: Math.random() * 2 + 2,
-    delay: Math.random() * 1.5,
-    rotation: Math.random() * 360,
-    shape: Math.random() > 0.5 ? "rect" : "circle",
-  }));
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setParticles(
+      Array.from({ length: 60 }, (_, i) => ({
+        id: i,
+        x: Math.random() * 100,
+        color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+        size: Math.random() * 8 + 5,
+        duration: Math.random() * 2 + 2,
+        delay: Math.random() * 1.5,
+        rotation: Math.random() * 360,
+        shape: Math.random() > 0.5 ? "rect" : "circle",
+      }))
+    );
+  }, []);
+
+  if (particles.length === 0) return null;
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
