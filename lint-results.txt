@@ -1,0 +1,200 @@
+
+> traumplatz@0.1.0 lint
+> eslint
+
+
+/Users/khaled/Desktop/Traumplatz/src/app/[service]/[city]/page.tsx
+  5:3  warning  'services' is defined but never used  @typescript-eslint/no-unused-vars
+  6:3  warning  'cities' is defined but never used    @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/[service]/page.tsx
+  5:3  warning  'services' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/city-content.ts
+  10:3  warning  'Users' is defined but never used        @typescript-eslint/no-unused-vars
+  15:3  warning  'CheckCircle' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/alsbach-haehnlein-layout.tsx
+  37:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/bensheim-layout.tsx
+  34:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/darmstadt-layout.tsx
+  35:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/einhausen-layout.tsx
+  34:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/heppenheim-layout.tsx
+  34:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/lorsch-layout.tsx
+  37:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/pfungstadt-layout.tsx
+  34:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/seeheim-jugenheim-layout.tsx
+  33:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/viernheim-layout.tsx
+  34:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/weinheim-layout.tsx
+  34:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/worms-layout.tsx
+  35:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/hausmeisterservice/[city]/layouts/zwingenberg-layout.tsx
+  34:9  warning  'service' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/kontakt/page.tsx
+  51:8   error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/khaled/Desktop/Traumplatz/src/app/kontakt/page.tsx:51:8
+  49 |   const particles: Particle[] = Array.from({ length: 60 }, (_, i) => ({
+  50 |     id: i,
+> 51 |     x: Math.random() * 100,
+     |        ^^^^^^^^^^^^^ Cannot call impure function
+  52 |     color: colors[Math.floor(Math.random() * colors.length)],
+  53 |     size: Math.random() * 8 + 5,
+  54 |     duration: Math.random() * 2 + 2,                  react-hooks/purity
+  52:30  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/khaled/Desktop/Traumplatz/src/app/kontakt/page.tsx:52:30
+  50 |     id: i,
+  51 |     x: Math.random() * 100,
+> 52 |     color: colors[Math.floor(Math.random() * colors.length)],
+     |                              ^^^^^^^^^^^^^ Cannot call impure function
+  53 |     size: Math.random() * 8 + 5,
+  54 |     duration: Math.random() * 2 + 2,
+  55 |     delay: Math.random() * 1.5,                                   react-hooks/purity
+  53:11  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/khaled/Desktop/Traumplatz/src/app/kontakt/page.tsx:53:11
+  51 |     x: Math.random() * 100,
+  52 |     color: colors[Math.floor(Math.random() * colors.length)],
+> 53 |     size: Math.random() * 8 + 5,
+     |           ^^^^^^^^^^^^^ Cannot call impure function
+  54 |     duration: Math.random() * 2 + 2,
+  55 |     delay: Math.random() * 1.5,
+  56 |     rotation: Math.random() * 360,                              react-hooks/purity
+  54:15  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/khaled/Desktop/Traumplatz/src/app/kontakt/page.tsx:54:15
+  52 |     color: colors[Math.floor(Math.random() * colors.length)],
+  53 |     size: Math.random() * 8 + 5,
+> 54 |     duration: Math.random() * 2 + 2,
+     |               ^^^^^^^^^^^^^ Cannot call impure function
+  55 |     delay: Math.random() * 1.5,
+  56 |     rotation: Math.random() * 360,
+  57 |     shape: Math.random() > 0.5 ? "rect" : "circle",  react-hooks/purity
+  55:12  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/khaled/Desktop/Traumplatz/src/app/kontakt/page.tsx:55:12
+  53 |     size: Math.random() * 8 + 5,
+  54 |     duration: Math.random() * 2 + 2,
+> 55 |     delay: Math.random() * 1.5,
+     |            ^^^^^^^^^^^^^ Cannot call impure function
+  56 |     rotation: Math.random() * 360,
+  57 |     shape: Math.random() > 0.5 ? "rect" : "circle",
+  58 |   }));                                                            react-hooks/purity
+  56:15  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/khaled/Desktop/Traumplatz/src/app/kontakt/page.tsx:56:15
+  54 |     duration: Math.random() * 2 + 2,
+  55 |     delay: Math.random() * 1.5,
+> 56 |     rotation: Math.random() * 360,
+     |               ^^^^^^^^^^^^^ Cannot call impure function
+  57 |     shape: Math.random() > 0.5 ? "rect" : "circle",
+  58 |   }));
+  59 |                                                                                          react-hooks/purity
+  57:12  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+/Users/khaled/Desktop/Traumplatz/src/app/kontakt/page.tsx:57:12
+  55 |     delay: Math.random() * 1.5,
+  56 |     rotation: Math.random() * 360,
+> 57 |     shape: Math.random() > 0.5 ? "rect" : "circle",
+     |            ^^^^^^^^^^^^^ Cannot call impure function
+  58 |   }));
+  59 |
+  60 |   return (                                                                                                                       react-hooks/purity
+
+/Users/khaled/Desktop/Traumplatz/src/app/sitemap.ts
+  4:3  warning  'cities' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/app/ueber-uns/page.tsx
+  25:3  warning  'Wrench' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/khaled/Desktop/Traumplatz/src/components/animated-counter.tsx
+  27:11  error    Error: Cannot access variable before it is declared
+
+`animateCount` is accessed before it is declared, which prevents the earlier access from updating when this value changes over time.
+
+/Users/khaled/Desktop/Traumplatz/src/components/animated-counter.tsx:27:11
+  25 |         if (entries[0].isIntersecting && !hasAnimated) {
+  26 |           setHasAnimated(true);
+> 27 |           animateCount();
+     |           ^^^^^^^^^^^^ `animateCount` accessed before it is declared
+  28 |         }
+  29 |       },
+  30 |       { threshold: 0.5 }
+
+/Users/khaled/Desktop/Traumplatz/src/components/animated-counter.tsx:40:3
+  38 |   }, [hasAnimated]);
+  39 |
+> 40 |   const animateCount = () => {
+     |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 41 |     const startTime = Date.now();
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 42 |     const startValue = 0;
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 59 |     requestAnimationFrame(updateCount);
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 60 |   };
+     | ^^^^^ `animateCount` is declared here
+  61 |
+  62 |   // Format number (e.g., 1000 -> 1K)
+  63 |   const formatNumber = (num: number): string => {  react-hooks/immutability
+  38:6   warning  React Hook useEffect has a missing dependency: 'animateCount'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
+
+/Users/khaled/Desktop/Traumplatz/src/components/reviews-carousel.tsx
+  144:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/khaled/Desktop/Traumplatz/src/components/reviews-carousel.tsx:144:7
+  142 |   useEffect(() => {
+  143 |     if (currentIndex > maxIndex) {
+> 144 |       setCurrentIndex(maxIndex);
+      |       ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  145 |     }
+  146 |   }, [maxIndex, currentIndex]);
+  147 |  react-hooks/set-state-in-effect
+
+/Users/khaled/Desktop/Traumplatz/src/components/service-area-map.tsx
+  97:6  warning  React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+✖ 30 problems (9 errors, 21 warnings)
+

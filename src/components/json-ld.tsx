@@ -215,6 +215,7 @@ export function LocalServiceJsonLd({
     areaServed: {
       "@type": "City",
       name: city.name,
+      postalCode: city.postalCodes?.[0] || undefined,
       geo: {
         "@type": "GeoCoordinates",
         latitude: city.coordinates.lat,
@@ -303,7 +304,16 @@ export function WebSiteJsonLd() {
 
 // AggregateRating Schema — zeigt Sternebewertung in Google Suchergebnissen
 export async function AggregateRatingJsonLd() {
-  const { rating, totalReviews } = await fetchGoogleReviews();
+  let rating = null;
+  let totalReviews = null;
+
+  try {
+    const data = await fetchGoogleReviews();
+    rating = data.rating;
+    totalReviews = data.totalReviews;
+  } catch (error) {
+    console.error("Error fetching Google Reviews for JSON-LD:", error);
+  }
 
   // Nur rendern wenn echte Daten vorhanden
   if (!rating || !totalReviews) return null;

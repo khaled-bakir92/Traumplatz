@@ -22,7 +22,6 @@ import {
   Headphones,
   Users,
   Award,
-  Wrench,
   ChevronRight,
 } from "lucide-react";
 

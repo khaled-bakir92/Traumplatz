@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  services,
   cities,
   getServiceBySlug,
   getAllServiceSlugs,
@@ -50,20 +49,11 @@ export async function generateMetadata({
       description,
       url,
       type: "website",
-      images: [
-        {
-          url: `/images/${service.slug}-og.jpg`,
-          width: 1200,
-          height: 630,
-          alt: `${service.name} - ${businessInfo.name}`,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [`/images/${service.slug}-og.jpg`],
     },
   };
 }

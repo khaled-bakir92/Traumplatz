@@ -42,3 +42,11 @@ yarn-error.log*
 next-env.d.ts
 
 *.md
+# Spec Kit - local development only
+.specify/
+.speckit/
+/speckit/
+.spec/
+.agent/
+.claude/
+.opencode/

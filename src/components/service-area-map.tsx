@@ -94,7 +94,7 @@ export function ServiceAreaMap({
     return () => {
       if (map) map.remove();
     };
-  }, [cities, serviceSlug, variant]);
+  }, [cities, serviceSlug, variant, router]);
 
   return (
     <div className="h-72 sm:h-80 lg:h-[28rem] overflow-hidden rounded-2xl border border-gray-200 shadow-sm">

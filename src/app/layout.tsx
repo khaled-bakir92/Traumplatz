@@ -128,11 +128,8 @@ export const metadata: Metadata = {
 
   // Icons
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
 
   // Manifest für PWA

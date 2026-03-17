@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/accordion";
 import { getCityContent } from "../city-content";
 import { businessInfo, getCityBySlug, cities, getOpenStreetMapEmbedUrl } from "@/lib/seo-config";
-import { getServiceBySlug } from "@/lib/seo-config";
 import {
   Phone,
   MessageCircle,
@@ -32,7 +31,6 @@ interface LayoutProps {
 export default function WormsLayout({ citySlug }: LayoutProps) {
   const content = getCityContent(citySlug)!;
   const city = getCityBySlug(citySlug)!;
-  const service = getServiceBySlug("hausmeisterservice")!;
   const otherCities = cities.filter((c) => c.slug !== citySlug).slice(0, 6);
   const mapUrl = getOpenStreetMapEmbedUrl(city);
 

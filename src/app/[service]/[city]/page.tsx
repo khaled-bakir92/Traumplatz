@@ -2,8 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
-  services,
-  cities,
   getServiceBySlug,
   getCityBySlug,
   generateAllServiceCityParams,
@@ -13,8 +11,11 @@ import {
   businessInfo,
   Service,
   City,
+  getCityServiceFAQs,
+  getNearestCities,
 } from "@/lib/seo-config";
-import { LocalServiceJsonLd, BreadcrumbJsonLd } from "@/components/json-ld";
+import { LocalServiceJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/json-ld";
+import { CityFaqSection } from "@/components/city-faq-section";
 
 interface CityServicePageProps {
   params: Promise<{ service: string; city: string }>;
@@ -41,7 +42,7 @@ export async function generateMetadata({
 
   const title = generateSeoTitle(service.name, city.name);
   const description = generateSeoDescription(service, city);
-  const url = `/${service.slug}/${city.slug}`;
+  const url = `${businessInfo.url}/${service.slug}/${city.slug}`;
 
   return {
     title,
@@ -60,26 +61,20 @@ export async function generateMetadata({
       description,
       url,
       type: "website",
-      images: [
-        {
-          url: `/images/${service.slug}-${city.slug}-og.jpg`,
-          width: 1200,
-          height: 630,
-          alt: `${service.name} in ${city.name} - ${businessInfo.name}`,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/og-image.png"],
     },
   };
 }
 
-// Service-spezifische Inhalte generieren (Anti-Duplicate-Content)
 function getServiceContent(service: Service, city: City) {
+  const isLargeCity = city.population > 50000;
+  const isHQ = city.isHQ;
+  const isFar = city.distanceFromHQ > 15;
+
   const contents: Record<
     string,
     {
@@ -90,84 +85,81 @@ function getServiceContent(service: Service, city: City) {
   > = {
     gartenpflege: {
       features: [
-        "Professionelles Rasenmähen und Rasenpflege",
-        "Heckenschnitt und Formschnitt",
-        "Beetpflege und Unkrautbekämpfung",
-        "Baumpflege und Baumschnitt",
-        "Saisonale Bepflanzung",
-        "Bewässerungssysteme",
+        `Rasenmähen und Grünflächenpflege in ganz ${city.name}`,
+        `Fachgerechter Heckenschnitt (gemäß Naturschutzvorgaben)`,
+        "Beetpflege und effektive Unkrautbekämpfung",
+        "Baumpflege und zertifizierter Baumschnitt",
+        isLargeCity ? "Pflege von gewerblichen Außenanlagen und Parks" : "Saisonale Bepflanzung für Privatgärten",
+        `Umweltfreundliche Entsorgung des Grünguts in der Region ${city.region}`,
       ],
       benefits: [
-        "Regelmäßige Pflege für einen gepflegten Garten",
-        "Fachgerechter Schnitt für gesunde Pflanzen",
-        "Individuelle Beratung für Ihren Garten",
+        isHQ ? "Besonders schnelle Anfahrt ohne Zusatzkosten" : `Pünktliche Anfahrt (nur ${city.distanceFromHQ} km von unserem Hauptsitz)`,
+        "Fachgerechter Schnitt für langfristig gesunde Pflanzen",
+        `Individuelle Beratung für Gärten in den ${city.districts.length} Ortsteilen von ${city.name}`,
       ],
-      seasonalNote: `In ${city.name} und Umgebung sorgen wir das ganze Jahr für Ihren perfekten Garten – vom Frühjahrsputz bis zur Herbstpflege.`,
+      seasonalNote: `Von Frühjahr bis Herbst: Wir halten das Stadtbild von ${city.name} grün und gepflegt.`,
     },
     hausmeisterservice: {
       features: [
-        "Kleinreparaturen und Instandhaltung",
-        "Objektbetreuung und Kontrollgänge",
-        "Treppenreinigung",
-        "Mülltonnenservice",
-        "Schlüsselverwaltung",
-        "Handwerkerkoordination",
+        `Kleinreparaturen und Instandhaltung von Immobilien in ${city.name}`,
+        "Regelmäßige Kontrollgänge und Objektbetreuung",
+        "Treppenhausreinigung (wöchentlich oder monatlich)",
+        "Zuverlässiges Mülltonnenmanagement und Tonnenbereitstellung",
+        "Schlüsselverwaltung für Eigentümer und Verwaltungen",
+        isLargeCity ? "Koordination von Fachhandwerkern in der Großstadt" : "Wartung kleinerer Wohnanlagen vor Ort",
       ],
       benefits: [
-        "Zuverlässige Betreuung Ihrer Immobilie",
-        "Schnelle Reaktion bei Problemen",
-        "Regelmäßige Objektkontrolle",
+        `Verlässlicher Werterhalt Ihrer Immobilie in der Region ${city.region}`,
+        isFar ? "Fest geplante Touren für verlässliche Betreuung" : "Schnell vor Ort bei dringenden Reparaturen",
+        "Ein fester Ansprechpartner für Ihr gesamtes Objekt",
       ],
-      seasonalNote: `Als Ihr Hausmeisterservice in ${city.name} sind wir Ihr Ansprechpartner für alle Belange rund um Ihre Immobilie.`,
+      seasonalNote: `Als starker Partner für Verwaltungen und Eigentümer in ${city.name} entlasten wir Sie im Alltag.`,
     },
     gebaeudereinigung: {
       features: [
-        "Büroreinigung und Unterhaltsreinigung",
-        "Treppenreinigung",
-        "Fensterreinigung",
-        "Grundreinigung",
-        "Bauendreinigung",
-        "Teppichreinigung",
+        `Büro- und Unterhaltsreinigung für Unternehmen in ${city.name}`,
+        "Treppenhausreinigung für Mehrfamilienhäuser",
+        "Streifenfreie Fenster- und Glasreinigung",
+        "Gründliche Bauendreinigung nach handwerklichen Arbeiten",
+        isLargeCity ? "Flexible Reinigungszeiten außerhalb der Geschäftszeiten" : "Individuelle Reinigungsintervalle nach Bedarf",
+        "Einsatz geprüfter und umweltfreundlicher Reinigungsmittel",
       ],
       benefits: [
-        "Saubere Arbeitsumgebung für mehr Wohlbefinden",
-        "Hygienische Räumlichkeiten",
-        "Flexible Reinigungszeiten",
+        `Repräsentative Sauberkeit für Gebäude in ganz ${city.name}`,
+        "Hygienische Arbeitsumgebungen für Ihre Mitarbeiter",
+        `Transparente Abrechnung ohne versteckte Anfahrtskosten`,
       ],
-      seasonalNote: `Für Unternehmen und Hausverwaltungen in ${city.name} bieten wir professionelle Reinigungsdienstleistungen.`,
+      seasonalNote: `Fachgerechte Reinigung für Praxen, Kanzleien und Bürogebäude im gesamten Einzugsgebiet ${city.name}.`,
     },
     winterdienst: {
       features: [
-        "Schneeräumung von Gehwegen und Parkplätzen",
-        "Streudienst mit umweltfreundlichem Streugut",
-        "Räumpflicht-Übernahme",
-        "24/7 Bereitschaft bei Schneefall",
-        "Dokumentation für Versicherungen",
-        "Vertragsmodelle für die gesamte Saison",
+        `Schneeräumung von Wegen, Einfahrten und Parkplätzen in ${city.name}`,
+        `Streudienst gemäß den gesetzlichen Vorgaben der Region ${city.region}`,
+        "Vollständige Räumpflicht-Übernahme für Grundstückseigentümer",
+        "24/7 Bereitschaft bei Neuschnee oder Glatteiswarnung",
+        "Strikte Dokumentationspflicht für rechtliche Absicherung",
+        isFar ? "Koordinierte Anfahrt für höchste Zuverlässigkeit" : "Sofort-Einsatz bei plötzlichem Wintereinbruch",
       ],
       benefits: [
-        "Rechtssichere Übernahme der Räumpflicht",
-        "Zuverlässiger Service auch bei starkem Schneefall",
-        "Haftungsübernahme inklusive",
+        `Rechtssichere Erfüllung der kommunalen Vorgaben für ${city.name}`,
+        "Deutlich minimiertes Haftungsrisiko bei Glatteisunfällen",
+        "Sorgenfreier und zuverlässiger Service durch die gesamte Wintersaison",
       ],
-      seasonalNote: `In ${city.name} sorgen wir bei Schnee und Eis für sichere Wege – zuverlässig und termingerecht.`,
+      seasonalNote: `Wir sichern die Gehwege in ${city.name} – damit Anwohner, Kunden und Mitarbeiter jederzeit sicher ankommen.`,
     },
   };
 
   return contents[service.slug] || contents.gartenpflege;
 }
 
-// Stadt-spezifische Einleitung generieren (Anti-Duplicate-Content)
 function getCityIntro(service: Service, city: City): string {
-  if (city.isHQ) {
-    return `Als lokaler Dienstleister mit Sitz direkt in ${city.name} sind wir Ihr erster Ansprechpartner für professionelle ${service.name}. Kurze Wege, schnelle Reaktionszeiten und persönlicher Service zeichnen uns aus.`;
-  }
+  const serviceContext = `Wenn es um professionelle ${service.name} geht, sind wir Ihr verlässlicher Dienstleister vor Ort.`;
+  
+  const districtMentions = city.districts.length > 0
+    ? `Egal ob im Stadtzentrum oder in Ortsteilen wie ${city.districts.slice(0, 2).join(" und ")} – wir kümmern uns darum.`
+    : `Wir betreuen das gesamte Stadtgebiet termingerecht und mit höchster Sorgfalt.`;
 
-  if (city.distanceFromHQ <= 10) {
-    return `${city.name} liegt nur ${city.distanceFromHQ} km von unserem Standort in Bensheim entfernt. Das bedeutet für Sie: schnelle Verfügbarkeit und flexible Terminplanung für alle ${service.name}-Dienstleistungen.`;
-  }
-
-  return `Auch in ${city.name} und der Region ${city.region} sind wir für Sie da. ${city.description}`;
+  return `${city.description} ${serviceContext} ${districtMentions}`;
 }
 
 export default async function CityServicePage({ params }: CityServicePageProps) {
@@ -182,9 +174,10 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
   const content = getServiceContent(service, city);
   const cityIntro = getCityIntro(service, city);
   const mapUrl = getOpenStreetMapEmbedUrl(city);
+  const localFaqs = getCityServiceFAQs(city.slug, service.slug);
 
-  // Andere Städte für diesen Service (für interne Verlinkung)
-  const otherCities = cities.filter((c) => c.slug !== city.slug).slice(0, 6);
+  // Geographisch nächste Städte für diesen Service (interne Verlinkung - FR-009)
+  const otherCities = getNearestCities(city.slug, 6);
 
   return (
     <>
@@ -197,6 +190,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
           { name: city.name },
         ]}
       />
+      {localFaqs.length > 0 && <FAQJsonLd questions={localFaqs} />}
 
       <main className="min-h-screen">
         {/* Hero Section */}
@@ -224,15 +218,15 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
               </ol>
             </nav>
 
-            {/* Einziger H1 pro Seite - SEO-optimiert */}
-            <h1 className="text-sm md:text-base font-medium text-gray-400 mb-2 uppercase tracking-wide">
+            {/* Emotionaler Tagline (früher H1) */}
+            <p className="text-sm md:text-base font-medium text-gray-500 mb-3 uppercase tracking-wide">
+              Wir kümmern uns in {city.name}. Sie entspannen.
+            </p>
+
+            {/* Einziger H1 pro Seite - SEO-optimiert, prominent */}
+            <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
               {service.name} in {city.name}
             </h1>
-
-            {/* Emotionaler Tagline */}
-            <p className="text-xl font-bold text-gray-900 mb-6">
-              Wir kümmern uns in {city.name}.<br />Sie entspannen.
-            </p>
 
             {/* Stadt-spezifische Einleitung */}
             <p className="text-xl text-gray-700 max-w-3xl mb-8">{cityIntro}</p>
@@ -344,6 +338,15 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        {localFaqs.length > 0 && (
+          <CityFaqSection
+            faqs={localFaqs}
+            cityName={city.name}
+            serviceName={service.name}
+          />
+        )}
 
         {/* Google Maps Section */}
         <section className="py-16 px-4 bg-white">

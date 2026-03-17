@@ -141,6 +141,7 @@ export function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
   // Reset index wenn sich die Ansicht ändert
   useEffect(() => {
     if (currentIndex > maxIndex) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCurrentIndex(maxIndex);
     }
   }, [maxIndex, currentIndex]);
