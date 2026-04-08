@@ -153,7 +153,7 @@ function getServiceContent(service: Service, city: City) {
 }
 
 function getCityIntro(service: Service, city: City): string {
-  const serviceContext = `Wenn es um professionelle ${service.name} geht, sind wir Ihr verlässlicher Dienstleister vor Ort.`;
+  const serviceContext = `Traumplatz bietet professionellen ${service.name} in ${city.name} – zuverlässig, termingerecht und mit langjähriger Erfahrung in der Region Bergstraße.`;
   
   const districtMentions = city.districts.length > 0
     ? `Egal ob im Stadtzentrum oder in Ortsteilen wie ${city.districts.slice(0, 2).join(" und ")} – wir kümmern uns darum.`
@@ -225,7 +225,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
 
             {/* Einziger H1 pro Seite - SEO-optimiert, prominent */}
             <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
-              {service.name} in {city.name}
+              Traumplatz – {service.name} in {city.name}
             </h1>
 
             {/* Stadt-spezifische Einleitung */}
@@ -255,14 +255,14 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
         <section className="py-16 px-4 bg-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Unsere {service.name} Leistungen in {city.name}
+              Was bietet Traumplatz bei {service.name} in {city.name}?
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Features Liste */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Das bieten wir Ihnen:
+                  Was ist im Leistungsumfang enthalten?
                 </h3>
                 <ul className="space-y-3">
                   {content.features.map((feature, index) => (
@@ -277,7 +277,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
               {/* Benefits Liste */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  Ihre Vorteile:
+                  Warum Traumplatz für {service.name} in {city.name}?
                 </h3>
                 <ul className="space-y-3">
                   {content.benefits.map((benefit, index) => (
@@ -302,7 +302,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
         <section className="py-16 px-4 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {service.name} in {city.name} und Umgebung
+              In welchen Stadtteilen von {city.name} ist Traumplatz tätig?
             </h2>
             <p className="text-lg text-gray-700 mb-8">
               Wir sind nicht nur in {city.name} selbst für Sie da, sondern auch
@@ -412,7 +412,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
         <section className="py-16 px-4 bg-green-700 text-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">
-              {service.name} in {city.name} anfragen
+              Wie {service.name} in {city.name} beauftragen?
             </h2>
             <p className="text-xl text-green-100 mb-8">
               Kontaktieren Sie uns für ein unverbindliches Angebot. Wir sind{" "}

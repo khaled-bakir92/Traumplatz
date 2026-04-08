@@ -32,7 +32,9 @@ export function LeistungenHero() {
             Unsere Leistungen
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
-            Von der <span className="text-brand-green font-semibold">Gartenpflege</span> bis zum{" "}
+            Von der <span className="text-brand-green font-semibold">Gartenpflege</span> über{" "}
+            <span className="text-brand-green font-semibold">Glas- und Gebäudereinigung</span> bis zum{" "}
+            <span className="text-brand-green font-semibold">Hausmeisterservice</span> und{" "}
             <span className="text-brand-green font-semibold">Winterdienst</span> –
             professionelle Dienstleistungen aus einer Hand. Wir kümmern uns um Ihr Objekt,
             damit Sie sich auf das Wesentliche konzentrieren können.

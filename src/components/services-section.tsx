@@ -14,7 +14,7 @@ const serviceCards = [
     href: "/gebaeudereinigung",
   },
   {
-    title: "Rasenschnitt",
+    title: "Gartenpflege & Rasenschnitt ",
     image: "/leistungen/Rasenschnitt.png",
     href: "/gartenpflege",
   },

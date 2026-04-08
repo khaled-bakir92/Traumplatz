@@ -318,7 +318,7 @@ export const cities: City[] = [
       "Steigerts",
     ],
     description:
-      "Die Luftkurortgemeinde Seeheim-Jugenheim besticht durch herrschaftliche Villen und gepflegte Parkanlagen an der Bergstraße. Wir pflegen hier Gärten mit Tradition.",
+      "Die Luftkurortgemeinde Seeheim-Jugenheim besticht durch herrschaftliche Villen und gepflegte Parkanlagen an der Bergstraße.",
     distanceFromHQ: 15,
     population: 16500,
     coordinates: { lat: 49.7694, lng: 8.6497 },
