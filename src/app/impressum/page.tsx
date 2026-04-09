@@ -44,7 +44,7 @@ const legalSections: LegalSection[] = [
     title: "Umsatzsteuer",
     content: [
       "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:",
-      "[USt-IdNr. wird nachgereicht]",
+      "DE366957082",
     ],
   },
   {

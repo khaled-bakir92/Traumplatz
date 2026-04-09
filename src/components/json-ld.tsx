@@ -144,6 +144,7 @@ export function LocalBusinessJsonLd() {
     sameAs: [
       businessInfo.socialMedia.instagram,
       businessInfo.socialMedia.tiktok,
+      businessInfo.directories.elftausend,
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",

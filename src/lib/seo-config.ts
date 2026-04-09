@@ -32,6 +32,9 @@ export const businessInfo = {
     instagram: "https://www.instagram.com/traumplatz_?igsh=MWVwdXJiMHgzYWk3bg==",
     tiktok: "https://www.tiktok.com/@traumplatz?_r=1&_t=ZN-94hEQ9To1d0",
   },
+  directories: {
+    elftausend: "https://www.11880-gartenbau.com/gartenbau/bensheim/traumplatz-garten-gebaeudemanagement-113723697.html",
+  },
 } as const;
 
 export interface Service {
@@ -203,7 +206,7 @@ export const cities: City[] = [
     postalCodes: ["64683"],
     districts: ["Klein-Hausen"],
     description:
-      "Die Gemeinde Einhausen im Ried ist bekannt für ihre ländliche Idylle und naturnahe Gärten. Unsere Experten kennen die besonderen Anforderungen der Riedböden.",
+      "Die Gemeinde Einhausen im Ried ist ein wichtiger Standort in unserem Einzugsgebiet. Wir kennen die Region und betreuen hier Privat- und Gewerbekunden zuverlässig vor Ort.",
     distanceFromHQ: 10,
     population: 6500,
     coordinates: { lat: 49.6775, lng: 8.5361 },
@@ -229,7 +232,7 @@ export const cities: City[] = [
     postalCodes: ["64673"],
     districts: ["Rodau"],
     description:
-      "Zwingenberg, die älteste Stadt an der Bergstraße, begeistert mit historischem Flair und gepflegten Gärten. Wir sind stolz, hier unsere Dienstleistungen anzubieten.",
+      "Zwingenberg, die älteste Stadt an der Bergstraße, ist ein wichtiger Standort in unserem Einzugsgebiet. Wir sind stolz, hier unsere Dienstleistungen anzubieten.",
     distanceFromHQ: 7,
     population: 7200,
     coordinates: { lat: 49.7264, lng: 8.6106 },
