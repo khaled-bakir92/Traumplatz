@@ -190,7 +190,7 @@ export const cities: City[] = [
     postalCodes: ["64653"],
     districts: ["Seehof"],
     description:
-      "Die UNESCO-Welterbestadt Lorsch mit dem berühmten Kloster Lorsch ist ein wichtiger Standort in unserem Einzugsgebiet. Wir pflegen hier Gärten und Grünanlagen mit besonderer Sorgfalt.",
+      "Die UNESCO-Welterbestadt Lorsch mit dem berühmten Kloster Lorsch ist ein wichtiger Standort in unserem Einzugsgebiet. Wir kennen die Stadt und ihre besonderen Anforderungen bestens.",
     distanceFromHQ: 8,
     population: 14000,
     coordinates: { lat: 49.6539, lng: 8.5672 },
@@ -272,7 +272,7 @@ export const cities: City[] = [
       "Ofling",
     ],
     description:
-      "Die Zwei-Burgen-Stadt Weinheim an der Bergstraße bietet mit dem Exotenwald und dem Schlossgarten besondere Grünanlagen. Wir kennen die Region bestens.",
+      "Die Zwei-Burgen-Stadt Weinheim an der Bergstraße ist ein bedeutender Standort in unserem Einzugsgebiet. Wir kennen die Region und ihre Anforderungen bestens.",
     distanceFromHQ: 15,
     population: 45000,
     coordinates: { lat: 49.5489, lng: 8.6644 },
@@ -298,7 +298,7 @@ export const cities: City[] = [
     postalCodes: ["64319"],
     districts: ["Eschollbrücken", "Eich", "Hahn"],
     description:
-      "Die Stadt Pfungstadt liegt zwischen Bergstraße und Ried. Mit dem Pfungstädter Moor und ausgedehnten Grünflächen ein ideales Arbeitsgebiet für unsere Gartenpflege.",
+      "Die Stadt Pfungstadt liegt zwischen Bergstraße und Ried – ein wichtiger Standort in unserem Einzugsgebiet. Hier betreuen wir Privat- und Gewerbekunden zuverlässig vor Ort.",
     distanceFromHQ: 15,
     population: 25000,
     coordinates: { lat: 49.8056, lng: 8.6036 },
