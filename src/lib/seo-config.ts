@@ -461,10 +461,10 @@ export const faqs: FAQ[] = [
 // Nur manuell aktualisieren, wenn der Inhalt der jeweiligen Seitengruppe
 // tatsächlich geändert wurde. Kein Build-Zeit-Dependency.
 export const sitemapDates = {
-  homepage: "2026-03-17",
-  staticPages: "2026-03-17",
-  servicePages: "2026-03-17",
-  cityPages: "2026-03-17",
+  homepage: "2026-04-09",
+  staticPages: "2026-04-09",
+  servicePages: "2026-04-09",
+  cityPages: "2026-04-09",
 } as const;
 
 // ─── City-FAQ-Pool (FR-007, FR-007a) — 12 Stadtsets ─────────────────────────

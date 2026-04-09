@@ -226,7 +226,7 @@ export function LocalServiceJsonLd({
     serviceType: service.name,
     availableChannel: {
       "@type": "ServiceChannel",
-      servicePhone: businessInfo.contact.phone,
+      servicePhone: `tel:${businessInfo.contact.phone.replace(/\s/g, "")}`,
       serviceUrl: `${businessInfo.url}/${service.slug}/${city.slug}`,
     },
   };
@@ -289,14 +289,6 @@ export function WebSiteJsonLd() {
     publisher: {
       "@type": "ProfessionalService",
       "@id": `${businessInfo.url}/#organization`,
-    },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${businessInfo.url}/leistungen?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
     },
   };
 

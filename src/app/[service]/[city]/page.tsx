@@ -13,9 +13,12 @@ import {
   City,
   getCityServiceFAQs,
   getNearestCities,
+  services,
 } from "@/lib/seo-config";
 import { LocalServiceJsonLd, BreadcrumbJsonLd, FAQJsonLd } from "@/components/json-ld";
 import { CityFaqSection } from "@/components/city-faq-section";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 interface CityServicePageProps {
   params: Promise<{ service: string; city: string }>;
@@ -61,6 +64,14 @@ export async function generateMetadata({
       description,
       url,
       type: "website",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 2848,
+          height: 1504,
+          alt: `${title} – Traumplatz`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -192,7 +203,8 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
       />
       {localFaqs.length > 0 && <FAQJsonLd questions={localFaqs} />}
 
-      <main className="min-h-screen">
+      <Header />
+      <main className="min-h-screen pt-28">
         {/* Hero Section */}
         <section className="bg-gradient-to-b from-green-50 to-white py-16 px-4">
           <div className="max-w-6xl mx-auto">
@@ -408,6 +420,30 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
           </div>
         </section>
 
+        {/* Weitere Leistungen in dieser Stadt - Cross-Service Verlinkung */}
+        <section className="py-16 px-4 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              Weitere Leistungen in {city.name}
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {services
+                .filter((s) => s.slug !== service.slug)
+                .map((otherService) => (
+                  <Link
+                    key={otherService.slug}
+                    href={`/${otherService.slug}/${city.slug}`}
+                    className="p-4 bg-gray-50 rounded-lg hover:bg-green-50 transition-colors border border-gray-200 hover:border-green-200"
+                  >
+                    <span className="font-semibold text-gray-900 hover:text-green-700">
+                      {otherService.name} in {city.name}
+                    </span>
+                  </Link>
+                ))}
+            </div>
+          </div>
+        </section>
+
         {/* Kontakt Section */}
         <section className="py-16 px-4 bg-green-700 text-white">
           <div className="max-w-4xl mx-auto text-center">
@@ -435,6 +471,7 @@ export default async function CityServicePage({ params }: CityServicePageProps) 
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

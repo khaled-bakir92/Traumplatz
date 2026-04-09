@@ -82,8 +82,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        width: 2848,
+        height: 1504,
         alt: `${businessInfo.name} - Professionelle Dienstleistungen an der Bergstraße`,
       },
     ],
@@ -106,9 +106,9 @@ export const metadata: Metadata = {
   // 2. Füge deine Domain hinzu → wähle "HTML-Meta-Tag" Methode
   // 3. Kopiere den Inhalt des "content"-Attributs (ohne Anführungszeichen)
   // 4. Ersetze "DEIN_CODE_HIER" mit deinem Code und entferne den Kommentar
-  // verification: {
-  //   google: "DEIN_CODE_HIER",
-  // },
+  verification: {
+    google: "IVcrTmCA9ZMVk7fiHVlCINLwrZZHTZozCBftus2k5YY",
+  },
 
   // Alternative Sprachen (falls mehrsprachig)
   alternates: {
