@@ -15,6 +15,20 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
+  // PostHog Proxy — leitet /ingest/* an PostHog weiter (umgeht Ad-Blocker)
+  async rewrites() {
+    return [
+      {
+        source: "/ingest/static/:path*",
+        destination: "https://us-assets.i.posthog.com/static/:path*",
+      },
+      {
+        source: "/ingest/:path*",
+        destination: "https://us.i.posthog.com/:path*",
+      },
+    ];
+  },
+
   // HTTP Security Headers — verbessert Lighthouse "Best Practices" Score
   async headers() {
     return [
