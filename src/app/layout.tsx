@@ -159,11 +159,12 @@ export default function RootLayout({
       >
         <PostHogProvider
           apiKey={process.env.NEXT_PUBLIC_POSTHOG_KEY!}
-          clientOptions={{ api_host: "/ingest" }}
+          clientOptions={{
+            api_host: "/ingest",
+            opt_out_persistence_by_default: false, // Standard: Tracking aktiv (kein Consent-Cookie nötig)
+          }}
         >
-          <Suspense fallback={null}>
-            <PostHogPageView />
-          </Suspense>
+          <PostHogPageView />
           {children}
         </PostHogProvider>
         <SpeedInsights />
