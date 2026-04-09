@@ -4,8 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { businessInfo, services, cities } from "@/lib/seo-config";
-import { PostHogProvider, PostHogPageView } from "@posthog/next";
-import { Suspense } from "react";
+import { PostHogProvider } from "@/components/posthog-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -157,14 +156,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <PostHogProvider
-          apiKey={process.env.NEXT_PUBLIC_POSTHOG_KEY!}
-          clientOptions={{
-            api_host: "/ingest",
-            opt_out_persistence_by_default: false, // Standard: Tracking aktiv (kein Consent-Cookie nötig)
-          }}
-        >
-          <PostHogPageView />
+        <PostHogProvider>
           {children}
         </PostHogProvider>
         <SpeedInsights />
