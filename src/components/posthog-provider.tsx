@@ -12,6 +12,8 @@ if (typeof window !== "undefined") {
     capture_pageview: false,
     capture_pageleave: true,
     persistence: "localStorage",
+    enable_heatmaps: true,
+    capture_performance: { web_vitals: true, network_timing: true },
   });
 }
 
