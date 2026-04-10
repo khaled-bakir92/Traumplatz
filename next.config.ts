@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
         destination: "/kontakt",
         permanent: true,
       },
+      {
+        source: "/unsere-leistungen",
+        destination: "/leistungen",
+        permanent: true,
+      },
     ];
   },
 
