@@ -15,6 +15,22 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
+  // WordPress-Migration: alte URLs auf neue weiterleiten (301 permanent)
+  async redirects() {
+    return [
+      {
+        source: "/about-us",
+        destination: "/ueber-uns",
+        permanent: true,
+      },
+      {
+        source: "/contact",
+        destination: "/kontakt",
+        permanent: true,
+      },
+    ];
+  },
+
   // PostHog Proxy — leitet /ingest/* an PostHog weiter (umgeht Ad-Blocker)
   async rewrites() {
     return [
